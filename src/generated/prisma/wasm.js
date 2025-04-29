@@ -120,9 +120,96 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UsersScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  cpf: 'cpf',
+  personType: 'personType'
+};
+
+exports.Prisma.CnpjsScalarFieldEnum = {
+  id: 'id',
+  number: 'number'
+};
+
+exports.Prisma.User_cnpjsScalarFieldEnum = {
+  id: 'id',
+  usersId: 'usersId',
+  cnpjsId: 'cnpjsId'
+};
+
+exports.Prisma.PhonesScalarFieldEnum = {
+  id: 'id',
+  number: 'number',
+  phoneType: 'phoneType',
+  usersId: 'usersId'
+};
+
+exports.Prisma.AddressScalarFieldEnum = {
+  id: 'id',
+  cep: 'cep',
+  street: 'street',
+  number: 'number',
+  complement: 'complement',
+  city: 'city',
+  district: 'district',
+  state: 'state',
+  usersId: 'usersId'
+};
+
+exports.Prisma.EmailsScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  usersId: 'usersId'
+};
+
+exports.Prisma.SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
+exports.Prisma.usersOrderByRelevanceFieldEnum = {
+  name: 'name',
+  cpf: 'cpf'
+};
+
+exports.Prisma.cnpjsOrderByRelevanceFieldEnum = {
+  number: 'number'
+};
+
+exports.Prisma.phonesOrderByRelevanceFieldEnum = {
+  number: 'number'
+};
+
+exports.Prisma.addressOrderByRelevanceFieldEnum = {
+  cep: 'cep',
+  street: 'street',
+  complement: 'complement',
+  city: 'city',
+  district: 'district',
+  state: 'state'
+};
+
+exports.Prisma.emailsOrderByRelevanceFieldEnum = {
+  email: 'email'
+};
+exports.PersonType = exports.$Enums.PersonType = {
+  fisica: 'fisica',
+  juridica: 'juridica'
+};
+
+exports.PhoneType = exports.$Enums.PhoneType = {
+  celular: 'celular',
+  telefone: 'telefone'
+};
 
 exports.Prisma.ModelName = {
-
+  users: 'users',
+  cnpjs: 'cnpjs',
+  user_cnpjs: 'user_cnpjs',
+  phones: 'phones',
+  address: 'address',
+  emails: 'emails'
 };
 
 /**
