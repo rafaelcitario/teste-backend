@@ -1,13 +1,7 @@
-import express from "express";
+import { app } from './app/app';
+import { ENV } from './env';
 
-const app = express();
-
-const port = process.env.PORT || 4568;
-
-app.get("/ping", (req, res) => {
-  return res.send("pong");
-});
-
-app.listen(port, () => {
-  console.log(`Escutando na porta ${port}`);
-});
+const port = ENV.SERVER_PORT;
+app.listen( port, () => {
+  console.log( `Escutando na porta ${port}` );
+} );
