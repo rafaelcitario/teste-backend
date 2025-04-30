@@ -22,6 +22,7 @@ enum PersonType {
 enum PhoneType {
   celular
   telefone
+  ambos
 }
 
 model users {
@@ -37,7 +38,7 @@ model users {
 
 model cnpjs {
   id         Int          @id @default(autoincrement())
-  number     String       @db.VarChar(14)
+  cnpj       String       @db.VarChar(14)
   user_cnpjs user_cnpjs[]
 }
 

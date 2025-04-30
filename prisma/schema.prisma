@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma/client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -22,26 +22,27 @@ enum PersonType {
 enum PhoneType {
   celular
   telefone
+  ambos
 }
 
 model users {
-  id         Int          @id @default(autoincrement())
-  name       String       @db.VarChar(100)
-  cpf        String       @db.VarChar(11)
+  id         Int           @id @default(autoincrement())
+  name       String        @db.VarChar(100)
+  cpf        String        @unique @db.VarChar(11)
   personType PersonType
-  user_cnpjs user_cnpjs[]
+  users_cnpjs users_cnpjs[]
   phones     phones[]
   address    address[]
   emails     emails[]
 }
 
 model cnpjs {
-  id         Int          @id @default(autoincrement())
-  number     String       @db.VarChar(14)
-  user_cnpjs user_cnpjs[]
+  id         Int           @id @default(autoincrement())
+  cnpj       String        @db.VarChar(14)
+  users_cnpjs users_cnpjs[]
 }
 
-model user_cnpjs {
+model users_cnpjs {
   id      Int   @id @default(autoincrement())
   user    users @relation(fields: [usersId], references: [id])
   cnpj    cnpjs @relation(fields: [cnpjsId], references: [id])

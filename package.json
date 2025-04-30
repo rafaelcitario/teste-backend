@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules src/index.ts"
+    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules  src/index.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",

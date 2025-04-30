@@ -129,10 +129,10 @@ exports.Prisma.UsersScalarFieldEnum = {
 
 exports.Prisma.CnpjsScalarFieldEnum = {
   id: 'id',
-  number: 'number'
+  cnpj: 'cnpj'
 };
 
-exports.Prisma.User_cnpjsScalarFieldEnum = {
+exports.Prisma.Users_cnpjsScalarFieldEnum = {
   id: 'id',
   usersId: 'usersId',
   cnpjsId: 'cnpjsId'
@@ -174,7 +174,7 @@ exports.Prisma.usersOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.cnpjsOrderByRelevanceFieldEnum = {
-  number: 'number'
+  cnpj: 'cnpj'
 };
 
 exports.Prisma.phonesOrderByRelevanceFieldEnum = {
@@ -200,13 +200,14 @@ exports.PersonType = exports.$Enums.PersonType = {
 
 exports.PhoneType = exports.$Enums.PhoneType = {
   celular: 'celular',
-  telefone: 'telefone'
+  telefone: 'telefone',
+  ambos: 'ambos'
 };
 
 exports.Prisma.ModelName = {
   users: 'users',
   cnpjs: 'cnpjs',
-  user_cnpjs: 'user_cnpjs',
+  users_cnpjs: 'users_cnpjs',
   phones: 'phones',
   address: 'address',
   emails: 'emails'

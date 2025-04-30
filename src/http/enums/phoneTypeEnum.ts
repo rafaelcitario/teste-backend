@@ -1,4 +1,5 @@
 export enum PhoneType {
   CELULAR = "celular",
-  TELEFONE = "telefone"
+  TELEFONE = "telefone",
+  ALL = "ambos"
 }

@@ -24,10 +24,10 @@ export type users = $Result.DefaultSelection<Prisma.$usersPayload>
  */
 export type cnpjs = $Result.DefaultSelection<Prisma.$cnpjsPayload>
 /**
- * Model user_cnpjs
+ * Model users_cnpjs
  * 
  */
-export type user_cnpjs = $Result.DefaultSelection<Prisma.$user_cnpjsPayload>
+export type users_cnpjs = $Result.DefaultSelection<Prisma.$users_cnpjsPayload>
 /**
  * Model phones
  * 
@@ -58,7 +58,8 @@ export type PersonType = (typeof PersonType)[keyof typeof PersonType]
 
 export const PhoneType: {
   celular: 'celular',
-  telefone: 'telefone'
+  telefone: 'telefone',
+  ambos: 'ambos'
 };
 
 export type PhoneType = (typeof PhoneType)[keyof typeof PhoneType]
@@ -219,14 +220,14 @@ export class PrismaClient<
   get cnpjs(): Prisma.cnpjsDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.user_cnpjs`: Exposes CRUD operations for the **user_cnpjs** model.
+   * `prisma.users_cnpjs`: Exposes CRUD operations for the **users_cnpjs** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more User_cnpjs
-    * const user_cnpjs = await prisma.user_cnpjs.findMany()
+    * // Fetch zero or more Users_cnpjs
+    * const users_cnpjs = await prisma.users_cnpjs.findMany()
     * ```
     */
-  get user_cnpjs(): Prisma.user_cnpjsDelegate<ExtArgs, ClientOptions>;
+  get users_cnpjs(): Prisma.users_cnpjsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.phones`: Exposes CRUD operations for the **phones** model.
@@ -699,7 +700,7 @@ export namespace Prisma {
   export const ModelName: {
     users: 'users',
     cnpjs: 'cnpjs',
-    user_cnpjs: 'user_cnpjs',
+    users_cnpjs: 'users_cnpjs',
     phones: 'phones',
     address: 'address',
     emails: 'emails'
@@ -721,7 +722,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "cnpjs" | "user_cnpjs" | "phones" | "address" | "emails"
+      modelProps: "users" | "cnpjs" | "users_cnpjs" | "phones" | "address" | "emails"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -857,69 +858,69 @@ export namespace Prisma {
           }
         }
       }
-      user_cnpjs: {
-        payload: Prisma.$user_cnpjsPayload<ExtArgs>
-        fields: Prisma.user_cnpjsFieldRefs
+      users_cnpjs: {
+        payload: Prisma.$users_cnpjsPayload<ExtArgs>
+        fields: Prisma.users_cnpjsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.user_cnpjsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload> | null
+            args: Prisma.users_cnpjsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.user_cnpjsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           findFirst: {
-            args: Prisma.user_cnpjsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload> | null
+            args: Prisma.users_cnpjsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.user_cnpjsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           findMany: {
-            args: Prisma.user_cnpjsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>[]
+            args: Prisma.users_cnpjsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>[]
           }
           create: {
-            args: Prisma.user_cnpjsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           createMany: {
-            args: Prisma.user_cnpjsCreateManyArgs<ExtArgs>
+            args: Prisma.users_cnpjsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.user_cnpjsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           update: {
-            args: Prisma.user_cnpjsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           deleteMany: {
-            args: Prisma.user_cnpjsDeleteManyArgs<ExtArgs>
+            args: Prisma.users_cnpjsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.user_cnpjsUpdateManyArgs<ExtArgs>
+            args: Prisma.users_cnpjsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.user_cnpjsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$user_cnpjsPayload>
+            args: Prisma.users_cnpjsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_cnpjsPayload>
           }
           aggregate: {
-            args: Prisma.User_cnpjsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser_cnpjs>
+            args: Prisma.Users_cnpjsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUsers_cnpjs>
           }
           groupBy: {
-            args: Prisma.user_cnpjsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<User_cnpjsGroupByOutputType>[]
+            args: Prisma.users_cnpjsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Users_cnpjsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.user_cnpjsCountArgs<ExtArgs>
-            result: $Utils.Optional<User_cnpjsCountAggregateOutputType> | number
+            args: Prisma.users_cnpjsCountArgs<ExtArgs>
+            result: $Utils.Optional<Users_cnpjsCountAggregateOutputType> | number
           }
         }
       }
@@ -1207,7 +1208,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     users?: usersOmit
     cnpjs?: cnpjsOmit
-    user_cnpjs?: user_cnpjsOmit
+    users_cnpjs?: users_cnpjsOmit
     phones?: phonesOmit
     address?: addressOmit
     emails?: emailsOmit
@@ -1305,14 +1306,14 @@ export namespace Prisma {
    */
 
   export type UsersCountOutputType = {
-    user_cnpjs: number
+    users_cnpjs: number
     phones: number
     address: number
     emails: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_cnpjs?: boolean | UsersCountOutputTypeCountUser_cnpjsArgs
+    users_cnpjs?: boolean | UsersCountOutputTypeCountUsers_cnpjsArgs
     phones?: boolean | UsersCountOutputTypeCountPhonesArgs
     address?: boolean | UsersCountOutputTypeCountAddressArgs
     emails?: boolean | UsersCountOutputTypeCountEmailsArgs
@@ -1332,8 +1333,8 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
-  export type UsersCountOutputTypeCountUser_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_cnpjsWhereInput
+  export type UsersCountOutputTypeCountUsers_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_cnpjsWhereInput
   }
 
   /**
@@ -1363,11 +1364,11 @@ export namespace Prisma {
    */
 
   export type CnpjsCountOutputType = {
-    user_cnpjs: number
+    users_cnpjs: number
   }
 
   export type CnpjsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_cnpjs?: boolean | CnpjsCountOutputTypeCountUser_cnpjsArgs
+    users_cnpjs?: boolean | CnpjsCountOutputTypeCountUsers_cnpjsArgs
   }
 
   // Custom InputTypes
@@ -1384,8 +1385,8 @@ export namespace Prisma {
   /**
    * CnpjsCountOutputType without action
    */
-  export type CnpjsCountOutputTypeCountUser_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_cnpjsWhereInput
+  export type CnpjsCountOutputTypeCountUsers_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_cnpjsWhereInput
   }
 
 
@@ -1583,7 +1584,7 @@ export namespace Prisma {
     name?: boolean
     cpf?: boolean
     personType?: boolean
-    user_cnpjs?: boolean | users$user_cnpjsArgs<ExtArgs>
+    users_cnpjs?: boolean | users$users_cnpjsArgs<ExtArgs>
     phones?: boolean | users$phonesArgs<ExtArgs>
     address?: boolean | users$addressArgs<ExtArgs>
     emails?: boolean | users$emailsArgs<ExtArgs>
@@ -1601,7 +1602,7 @@ export namespace Prisma {
 
   export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "cpf" | "personType", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_cnpjs?: boolean | users$user_cnpjsArgs<ExtArgs>
+    users_cnpjs?: boolean | users$users_cnpjsArgs<ExtArgs>
     phones?: boolean | users$phonesArgs<ExtArgs>
     address?: boolean | users$addressArgs<ExtArgs>
     emails?: boolean | users$emailsArgs<ExtArgs>
@@ -1611,7 +1612,7 @@ export namespace Prisma {
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "users"
     objects: {
-      user_cnpjs: Prisma.$user_cnpjsPayload<ExtArgs>[]
+      users_cnpjs: Prisma.$users_cnpjsPayload<ExtArgs>[]
       phones: Prisma.$phonesPayload<ExtArgs>[]
       address: Prisma.$addressPayload<ExtArgs>[]
       emails: Prisma.$emailsPayload<ExtArgs>[]
@@ -1961,7 +1962,7 @@ export namespace Prisma {
    */
   export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user_cnpjs<T extends users$user_cnpjsArgs<ExtArgs> = {}>(args?: Subset<T, users$user_cnpjsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    users_cnpjs<T extends users$users_cnpjsArgs<ExtArgs> = {}>(args?: Subset<T, users$users_cnpjsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     phones<T extends users$phonesArgs<ExtArgs> = {}>(args?: Subset<T, users$phonesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$phonesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     address<T extends users$addressArgs<ExtArgs> = {}>(args?: Subset<T, users$addressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$addressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     emails<T extends users$emailsArgs<ExtArgs> = {}>(args?: Subset<T, users$emailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$emailsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2341,27 +2342,27 @@ export namespace Prisma {
   }
 
   /**
-   * users.user_cnpjs
+   * users.users_cnpjs
    */
-  export type users$user_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users$users_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
-    where?: user_cnpjsWhereInput
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
-    cursor?: user_cnpjsWhereUniqueInput
+    include?: users_cnpjsInclude<ExtArgs> | null
+    where?: users_cnpjsWhereInput
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
+    cursor?: users_cnpjsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: User_cnpjsScalarFieldEnum | User_cnpjsScalarFieldEnum[]
+    distinct?: Users_cnpjsScalarFieldEnum | Users_cnpjsScalarFieldEnum[]
   }
 
   /**
@@ -2477,17 +2478,17 @@ export namespace Prisma {
 
   export type CnpjsMinAggregateOutputType = {
     id: number | null
-    number: string | null
+    cnpj: string | null
   }
 
   export type CnpjsMaxAggregateOutputType = {
     id: number | null
-    number: string | null
+    cnpj: string | null
   }
 
   export type CnpjsCountAggregateOutputType = {
     id: number
-    number: number
+    cnpj: number
     _all: number
   }
 
@@ -2502,17 +2503,17 @@ export namespace Prisma {
 
   export type CnpjsMinAggregateInputType = {
     id?: true
-    number?: true
+    cnpj?: true
   }
 
   export type CnpjsMaxAggregateInputType = {
     id?: true
-    number?: true
+    cnpj?: true
   }
 
   export type CnpjsCountAggregateInputType = {
     id?: true
-    number?: true
+    cnpj?: true
     _all?: true
   }
 
@@ -2604,7 +2605,7 @@ export namespace Prisma {
 
   export type CnpjsGroupByOutputType = {
     id: number
-    number: string
+    cnpj: string
     _count: CnpjsCountAggregateOutputType | null
     _avg: CnpjsAvgAggregateOutputType | null
     _sum: CnpjsSumAggregateOutputType | null
@@ -2628,8 +2629,8 @@ export namespace Prisma {
 
   export type cnpjsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    number?: boolean
-    user_cnpjs?: boolean | cnpjs$user_cnpjsArgs<ExtArgs>
+    cnpj?: boolean
+    users_cnpjs?: boolean | cnpjs$users_cnpjsArgs<ExtArgs>
     _count?: boolean | CnpjsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cnpjs"]>
 
@@ -2637,23 +2638,23 @@ export namespace Prisma {
 
   export type cnpjsSelectScalar = {
     id?: boolean
-    number?: boolean
+    cnpj?: boolean
   }
 
-  export type cnpjsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "number", ExtArgs["result"]["cnpjs"]>
+  export type cnpjsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cnpj", ExtArgs["result"]["cnpjs"]>
   export type cnpjsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_cnpjs?: boolean | cnpjs$user_cnpjsArgs<ExtArgs>
+    users_cnpjs?: boolean | cnpjs$users_cnpjsArgs<ExtArgs>
     _count?: boolean | CnpjsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $cnpjsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "cnpjs"
     objects: {
-      user_cnpjs: Prisma.$user_cnpjsPayload<ExtArgs>[]
+      users_cnpjs: Prisma.$users_cnpjsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      number: string
+      cnpj: string
     }, ExtArgs["result"]["cnpjs"]>
     composites: {}
   }
@@ -2994,7 +2995,7 @@ export namespace Prisma {
    */
   export interface Prisma__cnpjsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user_cnpjs<T extends cnpjs$user_cnpjsArgs<ExtArgs> = {}>(args?: Subset<T, cnpjs$user_cnpjsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    users_cnpjs<T extends cnpjs$users_cnpjsArgs<ExtArgs> = {}>(args?: Subset<T, cnpjs$users_cnpjsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3025,7 +3026,7 @@ export namespace Prisma {
    */
   interface cnpjsFieldRefs {
     readonly id: FieldRef<"cnpjs", 'Int'>
-    readonly number: FieldRef<"cnpjs", 'String'>
+    readonly cnpj: FieldRef<"cnpjs", 'String'>
   }
     
 
@@ -3369,27 +3370,27 @@ export namespace Prisma {
   }
 
   /**
-   * cnpjs.user_cnpjs
+   * cnpjs.users_cnpjs
    */
-  export type cnpjs$user_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type cnpjs$users_cnpjsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
-    where?: user_cnpjsWhereInput
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
-    cursor?: user_cnpjsWhereUniqueInput
+    include?: users_cnpjsInclude<ExtArgs> | null
+    where?: users_cnpjsWhereInput
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
+    cursor?: users_cnpjsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: User_cnpjsScalarFieldEnum | User_cnpjsScalarFieldEnum[]
+    distinct?: Users_cnpjsScalarFieldEnum | Users_cnpjsScalarFieldEnum[]
   }
 
   /**
@@ -3412,42 +3413,42 @@ export namespace Prisma {
 
 
   /**
-   * Model user_cnpjs
+   * Model users_cnpjs
    */
 
-  export type AggregateUser_cnpjs = {
-    _count: User_cnpjsCountAggregateOutputType | null
-    _avg: User_cnpjsAvgAggregateOutputType | null
-    _sum: User_cnpjsSumAggregateOutputType | null
-    _min: User_cnpjsMinAggregateOutputType | null
-    _max: User_cnpjsMaxAggregateOutputType | null
+  export type AggregateUsers_cnpjs = {
+    _count: Users_cnpjsCountAggregateOutputType | null
+    _avg: Users_cnpjsAvgAggregateOutputType | null
+    _sum: Users_cnpjsSumAggregateOutputType | null
+    _min: Users_cnpjsMinAggregateOutputType | null
+    _max: Users_cnpjsMaxAggregateOutputType | null
   }
 
-  export type User_cnpjsAvgAggregateOutputType = {
+  export type Users_cnpjsAvgAggregateOutputType = {
     id: number | null
     usersId: number | null
     cnpjsId: number | null
   }
 
-  export type User_cnpjsSumAggregateOutputType = {
+  export type Users_cnpjsSumAggregateOutputType = {
     id: number | null
     usersId: number | null
     cnpjsId: number | null
   }
 
-  export type User_cnpjsMinAggregateOutputType = {
+  export type Users_cnpjsMinAggregateOutputType = {
     id: number | null
     usersId: number | null
     cnpjsId: number | null
   }
 
-  export type User_cnpjsMaxAggregateOutputType = {
+  export type Users_cnpjsMaxAggregateOutputType = {
     id: number | null
     usersId: number | null
     cnpjsId: number | null
   }
 
-  export type User_cnpjsCountAggregateOutputType = {
+  export type Users_cnpjsCountAggregateOutputType = {
     id: number
     usersId: number
     cnpjsId: number
@@ -3455,172 +3456,172 @@ export namespace Prisma {
   }
 
 
-  export type User_cnpjsAvgAggregateInputType = {
+  export type Users_cnpjsAvgAggregateInputType = {
     id?: true
     usersId?: true
     cnpjsId?: true
   }
 
-  export type User_cnpjsSumAggregateInputType = {
+  export type Users_cnpjsSumAggregateInputType = {
     id?: true
     usersId?: true
     cnpjsId?: true
   }
 
-  export type User_cnpjsMinAggregateInputType = {
+  export type Users_cnpjsMinAggregateInputType = {
     id?: true
     usersId?: true
     cnpjsId?: true
   }
 
-  export type User_cnpjsMaxAggregateInputType = {
+  export type Users_cnpjsMaxAggregateInputType = {
     id?: true
     usersId?: true
     cnpjsId?: true
   }
 
-  export type User_cnpjsCountAggregateInputType = {
+  export type Users_cnpjsCountAggregateInputType = {
     id?: true
     usersId?: true
     cnpjsId?: true
     _all?: true
   }
 
-  export type User_cnpjsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Users_cnpjsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which user_cnpjs to aggregate.
+     * Filter which users_cnpjs to aggregate.
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of user_cnpjs to fetch.
+     * Determine the order of users_cnpjs to fetch.
      */
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: user_cnpjsWhereUniqueInput
+    cursor?: users_cnpjsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` user_cnpjs from the position of the cursor.
+     * Take `±n` users_cnpjs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` user_cnpjs.
+     * Skip the first `n` users_cnpjs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned user_cnpjs
+     * Count returned users_cnpjs
     **/
-    _count?: true | User_cnpjsCountAggregateInputType
+    _count?: true | Users_cnpjsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: User_cnpjsAvgAggregateInputType
+    _avg?: Users_cnpjsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: User_cnpjsSumAggregateInputType
+    _sum?: Users_cnpjsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: User_cnpjsMinAggregateInputType
+    _min?: Users_cnpjsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: User_cnpjsMaxAggregateInputType
+    _max?: Users_cnpjsMaxAggregateInputType
   }
 
-  export type GetUser_cnpjsAggregateType<T extends User_cnpjsAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser_cnpjs]: P extends '_count' | 'count'
+  export type GetUsers_cnpjsAggregateType<T extends Users_cnpjsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUsers_cnpjs]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser_cnpjs[P]>
-      : GetScalarType<T[P], AggregateUser_cnpjs[P]>
+        : GetScalarType<T[P], AggregateUsers_cnpjs[P]>
+      : GetScalarType<T[P], AggregateUsers_cnpjs[P]>
   }
 
 
 
 
-  export type user_cnpjsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_cnpjsWhereInput
-    orderBy?: user_cnpjsOrderByWithAggregationInput | user_cnpjsOrderByWithAggregationInput[]
-    by: User_cnpjsScalarFieldEnum[] | User_cnpjsScalarFieldEnum
-    having?: user_cnpjsScalarWhereWithAggregatesInput
+  export type users_cnpjsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_cnpjsWhereInput
+    orderBy?: users_cnpjsOrderByWithAggregationInput | users_cnpjsOrderByWithAggregationInput[]
+    by: Users_cnpjsScalarFieldEnum[] | Users_cnpjsScalarFieldEnum
+    having?: users_cnpjsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: User_cnpjsCountAggregateInputType | true
-    _avg?: User_cnpjsAvgAggregateInputType
-    _sum?: User_cnpjsSumAggregateInputType
-    _min?: User_cnpjsMinAggregateInputType
-    _max?: User_cnpjsMaxAggregateInputType
+    _count?: Users_cnpjsCountAggregateInputType | true
+    _avg?: Users_cnpjsAvgAggregateInputType
+    _sum?: Users_cnpjsSumAggregateInputType
+    _min?: Users_cnpjsMinAggregateInputType
+    _max?: Users_cnpjsMaxAggregateInputType
   }
 
-  export type User_cnpjsGroupByOutputType = {
+  export type Users_cnpjsGroupByOutputType = {
     id: number
     usersId: number
     cnpjsId: number
-    _count: User_cnpjsCountAggregateOutputType | null
-    _avg: User_cnpjsAvgAggregateOutputType | null
-    _sum: User_cnpjsSumAggregateOutputType | null
-    _min: User_cnpjsMinAggregateOutputType | null
-    _max: User_cnpjsMaxAggregateOutputType | null
+    _count: Users_cnpjsCountAggregateOutputType | null
+    _avg: Users_cnpjsAvgAggregateOutputType | null
+    _sum: Users_cnpjsSumAggregateOutputType | null
+    _min: Users_cnpjsMinAggregateOutputType | null
+    _max: Users_cnpjsMaxAggregateOutputType | null
   }
 
-  type GetUser_cnpjsGroupByPayload<T extends user_cnpjsGroupByArgs> = Prisma.PrismaPromise<
+  type GetUsers_cnpjsGroupByPayload<T extends users_cnpjsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<User_cnpjsGroupByOutputType, T['by']> &
+      PickEnumerable<Users_cnpjsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof User_cnpjsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Users_cnpjsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], User_cnpjsGroupByOutputType[P]>
-            : GetScalarType<T[P], User_cnpjsGroupByOutputType[P]>
+              : GetScalarType<T[P], Users_cnpjsGroupByOutputType[P]>
+            : GetScalarType<T[P], Users_cnpjsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type user_cnpjsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type users_cnpjsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     usersId?: boolean
     cnpjsId?: boolean
     user?: boolean | usersDefaultArgs<ExtArgs>
     cnpj?: boolean | cnpjsDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user_cnpjs"]>
+  }, ExtArgs["result"]["users_cnpjs"]>
 
 
 
-  export type user_cnpjsSelectScalar = {
+  export type users_cnpjsSelectScalar = {
     id?: boolean
     usersId?: boolean
     cnpjsId?: boolean
   }
 
-  export type user_cnpjsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "usersId" | "cnpjsId", ExtArgs["result"]["user_cnpjs"]>
-  export type user_cnpjsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "usersId" | "cnpjsId", ExtArgs["result"]["users_cnpjs"]>
+  export type users_cnpjsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | usersDefaultArgs<ExtArgs>
     cnpj?: boolean | cnpjsDefaultArgs<ExtArgs>
   }
 
-  export type $user_cnpjsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "user_cnpjs"
+  export type $users_cnpjsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "users_cnpjs"
     objects: {
       user: Prisma.$usersPayload<ExtArgs>
       cnpj: Prisma.$cnpjsPayload<ExtArgs>
@@ -3629,143 +3630,143 @@ export namespace Prisma {
       id: number
       usersId: number
       cnpjsId: number
-    }, ExtArgs["result"]["user_cnpjs"]>
+    }, ExtArgs["result"]["users_cnpjs"]>
     composites: {}
   }
 
-  type user_cnpjsGetPayload<S extends boolean | null | undefined | user_cnpjsDefaultArgs> = $Result.GetResult<Prisma.$user_cnpjsPayload, S>
+  type users_cnpjsGetPayload<S extends boolean | null | undefined | users_cnpjsDefaultArgs> = $Result.GetResult<Prisma.$users_cnpjsPayload, S>
 
-  type user_cnpjsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<user_cnpjsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: User_cnpjsCountAggregateInputType | true
+  type users_cnpjsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<users_cnpjsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Users_cnpjsCountAggregateInputType | true
     }
 
-  export interface user_cnpjsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['user_cnpjs'], meta: { name: 'user_cnpjs' } }
+  export interface users_cnpjsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['users_cnpjs'], meta: { name: 'users_cnpjs' } }
     /**
-     * Find zero or one User_cnpjs that matches the filter.
-     * @param {user_cnpjsFindUniqueArgs} args - Arguments to find a User_cnpjs
+     * Find zero or one Users_cnpjs that matches the filter.
+     * @param {users_cnpjsFindUniqueArgs} args - Arguments to find a Users_cnpjs
      * @example
-     * // Get one User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findUnique({
+     * // Get one Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends user_cnpjsFindUniqueArgs>(args: SelectSubset<T, user_cnpjsFindUniqueArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends users_cnpjsFindUniqueArgs>(args: SelectSubset<T, users_cnpjsFindUniqueArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one User_cnpjs that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Users_cnpjs that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {user_cnpjsFindUniqueOrThrowArgs} args - Arguments to find a User_cnpjs
+     * @param {users_cnpjsFindUniqueOrThrowArgs} args - Arguments to find a Users_cnpjs
      * @example
-     * // Get one User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findUniqueOrThrow({
+     * // Get one Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends user_cnpjsFindUniqueOrThrowArgs>(args: SelectSubset<T, user_cnpjsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends users_cnpjsFindUniqueOrThrowArgs>(args: SelectSubset<T, users_cnpjsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User_cnpjs that matches the filter.
+     * Find the first Users_cnpjs that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsFindFirstArgs} args - Arguments to find a User_cnpjs
+     * @param {users_cnpjsFindFirstArgs} args - Arguments to find a Users_cnpjs
      * @example
-     * // Get one User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findFirst({
+     * // Get one Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends user_cnpjsFindFirstArgs>(args?: SelectSubset<T, user_cnpjsFindFirstArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends users_cnpjsFindFirstArgs>(args?: SelectSubset<T, users_cnpjsFindFirstArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User_cnpjs that matches the filter or
+     * Find the first Users_cnpjs that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsFindFirstOrThrowArgs} args - Arguments to find a User_cnpjs
+     * @param {users_cnpjsFindFirstOrThrowArgs} args - Arguments to find a Users_cnpjs
      * @example
-     * // Get one User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findFirstOrThrow({
+     * // Get one Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends user_cnpjsFindFirstOrThrowArgs>(args?: SelectSubset<T, user_cnpjsFindFirstOrThrowArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends users_cnpjsFindFirstOrThrowArgs>(args?: SelectSubset<T, users_cnpjsFindFirstOrThrowArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more User_cnpjs that matches the filter.
+     * Find zero or more Users_cnpjs that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {users_cnpjsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findMany()
+     * // Get all Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findMany()
      * 
-     * // Get first 10 User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.findMany({ take: 10 })
+     * // Get first 10 Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const user_cnpjsWithIdOnly = await prisma.user_cnpjs.findMany({ select: { id: true } })
+     * const users_cnpjsWithIdOnly = await prisma.users_cnpjs.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends user_cnpjsFindManyArgs>(args?: SelectSubset<T, user_cnpjsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends users_cnpjsFindManyArgs>(args?: SelectSubset<T, users_cnpjsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a User_cnpjs.
-     * @param {user_cnpjsCreateArgs} args - Arguments to create a User_cnpjs.
+     * Create a Users_cnpjs.
+     * @param {users_cnpjsCreateArgs} args - Arguments to create a Users_cnpjs.
      * @example
-     * // Create one User_cnpjs
-     * const User_cnpjs = await prisma.user_cnpjs.create({
+     * // Create one Users_cnpjs
+     * const Users_cnpjs = await prisma.users_cnpjs.create({
      *   data: {
-     *     // ... data to create a User_cnpjs
+     *     // ... data to create a Users_cnpjs
      *   }
      * })
      * 
      */
-    create<T extends user_cnpjsCreateArgs>(args: SelectSubset<T, user_cnpjsCreateArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends users_cnpjsCreateArgs>(args: SelectSubset<T, users_cnpjsCreateArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many User_cnpjs.
-     * @param {user_cnpjsCreateManyArgs} args - Arguments to create many User_cnpjs.
+     * Create many Users_cnpjs.
+     * @param {users_cnpjsCreateManyArgs} args - Arguments to create many Users_cnpjs.
      * @example
-     * // Create many User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.createMany({
+     * // Create many Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends user_cnpjsCreateManyArgs>(args?: SelectSubset<T, user_cnpjsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends users_cnpjsCreateManyArgs>(args?: SelectSubset<T, users_cnpjsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a User_cnpjs.
-     * @param {user_cnpjsDeleteArgs} args - Arguments to delete one User_cnpjs.
+     * Delete a Users_cnpjs.
+     * @param {users_cnpjsDeleteArgs} args - Arguments to delete one Users_cnpjs.
      * @example
-     * // Delete one User_cnpjs
-     * const User_cnpjs = await prisma.user_cnpjs.delete({
+     * // Delete one Users_cnpjs
+     * const Users_cnpjs = await prisma.users_cnpjs.delete({
      *   where: {
-     *     // ... filter to delete one User_cnpjs
+     *     // ... filter to delete one Users_cnpjs
      *   }
      * })
      * 
      */
-    delete<T extends user_cnpjsDeleteArgs>(args: SelectSubset<T, user_cnpjsDeleteArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends users_cnpjsDeleteArgs>(args: SelectSubset<T, users_cnpjsDeleteArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one User_cnpjs.
-     * @param {user_cnpjsUpdateArgs} args - Arguments to update one User_cnpjs.
+     * Update one Users_cnpjs.
+     * @param {users_cnpjsUpdateArgs} args - Arguments to update one Users_cnpjs.
      * @example
-     * // Update one User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.update({
+     * // Update one Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3775,30 +3776,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends user_cnpjsUpdateArgs>(args: SelectSubset<T, user_cnpjsUpdateArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends users_cnpjsUpdateArgs>(args: SelectSubset<T, users_cnpjsUpdateArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more User_cnpjs.
-     * @param {user_cnpjsDeleteManyArgs} args - Arguments to filter User_cnpjs to delete.
+     * Delete zero or more Users_cnpjs.
+     * @param {users_cnpjsDeleteManyArgs} args - Arguments to filter Users_cnpjs to delete.
      * @example
-     * // Delete a few User_cnpjs
-     * const { count } = await prisma.user_cnpjs.deleteMany({
+     * // Delete a few Users_cnpjs
+     * const { count } = await prisma.users_cnpjs.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends user_cnpjsDeleteManyArgs>(args?: SelectSubset<T, user_cnpjsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends users_cnpjsDeleteManyArgs>(args?: SelectSubset<T, users_cnpjsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more User_cnpjs.
+     * Update zero or more Users_cnpjs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {users_cnpjsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.updateMany({
+     * // Update many Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3808,56 +3809,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends user_cnpjsUpdateManyArgs>(args: SelectSubset<T, user_cnpjsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends users_cnpjsUpdateManyArgs>(args: SelectSubset<T, users_cnpjsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one User_cnpjs.
-     * @param {user_cnpjsUpsertArgs} args - Arguments to update or create a User_cnpjs.
+     * Create or update one Users_cnpjs.
+     * @param {users_cnpjsUpsertArgs} args - Arguments to update or create a Users_cnpjs.
      * @example
-     * // Update or create a User_cnpjs
-     * const user_cnpjs = await prisma.user_cnpjs.upsert({
+     * // Update or create a Users_cnpjs
+     * const users_cnpjs = await prisma.users_cnpjs.upsert({
      *   create: {
-     *     // ... data to create a User_cnpjs
+     *     // ... data to create a Users_cnpjs
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User_cnpjs we want to update
+     *     // ... the filter for the Users_cnpjs we want to update
      *   }
      * })
      */
-    upsert<T extends user_cnpjsUpsertArgs>(args: SelectSubset<T, user_cnpjsUpsertArgs<ExtArgs>>): Prisma__user_cnpjsClient<$Result.GetResult<Prisma.$user_cnpjsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends users_cnpjsUpsertArgs>(args: SelectSubset<T, users_cnpjsUpsertArgs<ExtArgs>>): Prisma__users_cnpjsClient<$Result.GetResult<Prisma.$users_cnpjsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of User_cnpjs.
+     * Count the number of Users_cnpjs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsCountArgs} args - Arguments to filter User_cnpjs to count.
+     * @param {users_cnpjsCountArgs} args - Arguments to filter Users_cnpjs to count.
      * @example
-     * // Count the number of User_cnpjs
-     * const count = await prisma.user_cnpjs.count({
+     * // Count the number of Users_cnpjs
+     * const count = await prisma.users_cnpjs.count({
      *   where: {
-     *     // ... the filter for the User_cnpjs we want to count
+     *     // ... the filter for the Users_cnpjs we want to count
      *   }
      * })
     **/
-    count<T extends user_cnpjsCountArgs>(
-      args?: Subset<T, user_cnpjsCountArgs>,
+    count<T extends users_cnpjsCountArgs>(
+      args?: Subset<T, users_cnpjsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], User_cnpjsCountAggregateOutputType>
+          : GetScalarType<T['select'], Users_cnpjsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User_cnpjs.
+     * Allows you to perform aggregations operations on a Users_cnpjs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {User_cnpjsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Users_cnpjsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3877,13 +3878,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends User_cnpjsAggregateArgs>(args: Subset<T, User_cnpjsAggregateArgs>): Prisma.PrismaPromise<GetUser_cnpjsAggregateType<T>>
+    aggregate<T extends Users_cnpjsAggregateArgs>(args: Subset<T, Users_cnpjsAggregateArgs>): Prisma.PrismaPromise<GetUsers_cnpjsAggregateType<T>>
 
     /**
-     * Group by User_cnpjs.
+     * Group by Users_cnpjs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {user_cnpjsGroupByArgs} args - Group by arguments.
+     * @param {users_cnpjsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3898,14 +3899,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends user_cnpjsGroupByArgs,
+      T extends users_cnpjsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: user_cnpjsGroupByArgs['orderBy'] }
-        : { orderBy?: user_cnpjsGroupByArgs['orderBy'] },
+        ? { orderBy: users_cnpjsGroupByArgs['orderBy'] }
+        : { orderBy?: users_cnpjsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3954,20 +3955,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, user_cnpjsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUser_cnpjsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, users_cnpjsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsers_cnpjsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the user_cnpjs model
+   * Fields of the users_cnpjs model
    */
-  readonly fields: user_cnpjsFieldRefs;
+  readonly fields: users_cnpjsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for user_cnpjs.
+   * The delegate class that acts as a "Promise-like" for users_cnpjs.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__user_cnpjsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__users_cnpjsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     cnpj<T extends cnpjsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, cnpjsDefaultArgs<ExtArgs>>): Prisma__cnpjsClient<$Result.GetResult<Prisma.$cnpjsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -3997,370 +3998,370 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the user_cnpjs model
+   * Fields of the users_cnpjs model
    */
-  interface user_cnpjsFieldRefs {
-    readonly id: FieldRef<"user_cnpjs", 'Int'>
-    readonly usersId: FieldRef<"user_cnpjs", 'Int'>
-    readonly cnpjsId: FieldRef<"user_cnpjs", 'Int'>
+  interface users_cnpjsFieldRefs {
+    readonly id: FieldRef<"users_cnpjs", 'Int'>
+    readonly usersId: FieldRef<"users_cnpjs", 'Int'>
+    readonly cnpjsId: FieldRef<"users_cnpjs", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * user_cnpjs findUnique
+   * users_cnpjs findUnique
    */
-  export type user_cnpjsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter, which user_cnpjs to fetch.
+     * Filter, which users_cnpjs to fetch.
      */
-    where: user_cnpjsWhereUniqueInput
+    where: users_cnpjsWhereUniqueInput
   }
 
   /**
-   * user_cnpjs findUniqueOrThrow
+   * users_cnpjs findUniqueOrThrow
    */
-  export type user_cnpjsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter, which user_cnpjs to fetch.
+     * Filter, which users_cnpjs to fetch.
      */
-    where: user_cnpjsWhereUniqueInput
+    where: users_cnpjsWhereUniqueInput
   }
 
   /**
-   * user_cnpjs findFirst
+   * users_cnpjs findFirst
    */
-  export type user_cnpjsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter, which user_cnpjs to fetch.
+     * Filter, which users_cnpjs to fetch.
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of user_cnpjs to fetch.
+     * Determine the order of users_cnpjs to fetch.
      */
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for user_cnpjs.
+     * Sets the position for searching for users_cnpjs.
      */
-    cursor?: user_cnpjsWhereUniqueInput
+    cursor?: users_cnpjsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` user_cnpjs from the position of the cursor.
+     * Take `±n` users_cnpjs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` user_cnpjs.
+     * Skip the first `n` users_cnpjs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of user_cnpjs.
+     * Filter by unique combinations of users_cnpjs.
      */
-    distinct?: User_cnpjsScalarFieldEnum | User_cnpjsScalarFieldEnum[]
+    distinct?: Users_cnpjsScalarFieldEnum | Users_cnpjsScalarFieldEnum[]
   }
 
   /**
-   * user_cnpjs findFirstOrThrow
+   * users_cnpjs findFirstOrThrow
    */
-  export type user_cnpjsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter, which user_cnpjs to fetch.
+     * Filter, which users_cnpjs to fetch.
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of user_cnpjs to fetch.
+     * Determine the order of users_cnpjs to fetch.
      */
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for user_cnpjs.
+     * Sets the position for searching for users_cnpjs.
      */
-    cursor?: user_cnpjsWhereUniqueInput
+    cursor?: users_cnpjsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` user_cnpjs from the position of the cursor.
+     * Take `±n` users_cnpjs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` user_cnpjs.
+     * Skip the first `n` users_cnpjs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of user_cnpjs.
+     * Filter by unique combinations of users_cnpjs.
      */
-    distinct?: User_cnpjsScalarFieldEnum | User_cnpjsScalarFieldEnum[]
+    distinct?: Users_cnpjsScalarFieldEnum | Users_cnpjsScalarFieldEnum[]
   }
 
   /**
-   * user_cnpjs findMany
+   * users_cnpjs findMany
    */
-  export type user_cnpjsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter, which user_cnpjs to fetch.
+     * Filter, which users_cnpjs to fetch.
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of user_cnpjs to fetch.
+     * Determine the order of users_cnpjs to fetch.
      */
-    orderBy?: user_cnpjsOrderByWithRelationInput | user_cnpjsOrderByWithRelationInput[]
+    orderBy?: users_cnpjsOrderByWithRelationInput | users_cnpjsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing user_cnpjs.
+     * Sets the position for listing users_cnpjs.
      */
-    cursor?: user_cnpjsWhereUniqueInput
+    cursor?: users_cnpjsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` user_cnpjs from the position of the cursor.
+     * Take `±n` users_cnpjs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` user_cnpjs.
+     * Skip the first `n` users_cnpjs.
      */
     skip?: number
-    distinct?: User_cnpjsScalarFieldEnum | User_cnpjsScalarFieldEnum[]
+    distinct?: Users_cnpjsScalarFieldEnum | Users_cnpjsScalarFieldEnum[]
   }
 
   /**
-   * user_cnpjs create
+   * users_cnpjs create
    */
-  export type user_cnpjsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * The data needed to create a user_cnpjs.
+     * The data needed to create a users_cnpjs.
      */
-    data: XOR<user_cnpjsCreateInput, user_cnpjsUncheckedCreateInput>
+    data: XOR<users_cnpjsCreateInput, users_cnpjsUncheckedCreateInput>
   }
 
   /**
-   * user_cnpjs createMany
+   * users_cnpjs createMany
    */
-  export type user_cnpjsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many user_cnpjs.
+     * The data used to create many users_cnpjs.
      */
-    data: user_cnpjsCreateManyInput | user_cnpjsCreateManyInput[]
+    data: users_cnpjsCreateManyInput | users_cnpjsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * user_cnpjs update
+   * users_cnpjs update
    */
-  export type user_cnpjsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * The data needed to update a user_cnpjs.
+     * The data needed to update a users_cnpjs.
      */
-    data: XOR<user_cnpjsUpdateInput, user_cnpjsUncheckedUpdateInput>
+    data: XOR<users_cnpjsUpdateInput, users_cnpjsUncheckedUpdateInput>
     /**
-     * Choose, which user_cnpjs to update.
+     * Choose, which users_cnpjs to update.
      */
-    where: user_cnpjsWhereUniqueInput
+    where: users_cnpjsWhereUniqueInput
   }
 
   /**
-   * user_cnpjs updateMany
+   * users_cnpjs updateMany
    */
-  export type user_cnpjsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update user_cnpjs.
+     * The data used to update users_cnpjs.
      */
-    data: XOR<user_cnpjsUpdateManyMutationInput, user_cnpjsUncheckedUpdateManyInput>
+    data: XOR<users_cnpjsUpdateManyMutationInput, users_cnpjsUncheckedUpdateManyInput>
     /**
-     * Filter which user_cnpjs to update
+     * Filter which users_cnpjs to update
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
-     * Limit how many user_cnpjs to update.
+     * Limit how many users_cnpjs to update.
      */
     limit?: number
   }
 
   /**
-   * user_cnpjs upsert
+   * users_cnpjs upsert
    */
-  export type user_cnpjsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * The filter to search for the user_cnpjs to update in case it exists.
+     * The filter to search for the users_cnpjs to update in case it exists.
      */
-    where: user_cnpjsWhereUniqueInput
+    where: users_cnpjsWhereUniqueInput
     /**
-     * In case the user_cnpjs found by the `where` argument doesn't exist, create a new user_cnpjs with this data.
+     * In case the users_cnpjs found by the `where` argument doesn't exist, create a new users_cnpjs with this data.
      */
-    create: XOR<user_cnpjsCreateInput, user_cnpjsUncheckedCreateInput>
+    create: XOR<users_cnpjsCreateInput, users_cnpjsUncheckedCreateInput>
     /**
-     * In case the user_cnpjs was found with the provided `where` argument, update it with this data.
+     * In case the users_cnpjs was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<user_cnpjsUpdateInput, user_cnpjsUncheckedUpdateInput>
+    update: XOR<users_cnpjsUpdateInput, users_cnpjsUncheckedUpdateInput>
   }
 
   /**
-   * user_cnpjs delete
+   * users_cnpjs delete
    */
-  export type user_cnpjsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
     /**
-     * Filter which user_cnpjs to delete.
+     * Filter which users_cnpjs to delete.
      */
-    where: user_cnpjsWhereUniqueInput
+    where: users_cnpjsWhereUniqueInput
   }
 
   /**
-   * user_cnpjs deleteMany
+   * users_cnpjs deleteMany
    */
-  export type user_cnpjsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which user_cnpjs to delete
+     * Filter which users_cnpjs to delete
      */
-    where?: user_cnpjsWhereInput
+    where?: users_cnpjsWhereInput
     /**
-     * Limit how many user_cnpjs to delete.
+     * Limit how many users_cnpjs to delete.
      */
     limit?: number
   }
 
   /**
-   * user_cnpjs without action
+   * users_cnpjs without action
    */
-  export type user_cnpjsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type users_cnpjsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the user_cnpjs
+     * Select specific fields to fetch from the users_cnpjs
      */
-    select?: user_cnpjsSelect<ExtArgs> | null
+    select?: users_cnpjsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the user_cnpjs
+     * Omit specific fields from the users_cnpjs
      */
-    omit?: user_cnpjsOmit<ExtArgs> | null
+    omit?: users_cnpjsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: user_cnpjsInclude<ExtArgs> | null
+    include?: users_cnpjsInclude<ExtArgs> | null
   }
 
 
@@ -7306,19 +7307,19 @@ export namespace Prisma {
 
   export const CnpjsScalarFieldEnum: {
     id: 'id',
-    number: 'number'
+    cnpj: 'cnpj'
   };
 
   export type CnpjsScalarFieldEnum = (typeof CnpjsScalarFieldEnum)[keyof typeof CnpjsScalarFieldEnum]
 
 
-  export const User_cnpjsScalarFieldEnum: {
+  export const Users_cnpjsScalarFieldEnum: {
     id: 'id',
     usersId: 'usersId',
     cnpjsId: 'cnpjsId'
   };
 
-  export type User_cnpjsScalarFieldEnum = (typeof User_cnpjsScalarFieldEnum)[keyof typeof User_cnpjsScalarFieldEnum]
+  export type Users_cnpjsScalarFieldEnum = (typeof Users_cnpjsScalarFieldEnum)[keyof typeof Users_cnpjsScalarFieldEnum]
 
 
   export const PhonesScalarFieldEnum: {
@@ -7372,7 +7373,7 @@ export namespace Prisma {
 
 
   export const cnpjsOrderByRelevanceFieldEnum: {
-    number: 'number'
+    cnpj: 'cnpj'
   };
 
   export type cnpjsOrderByRelevanceFieldEnum = (typeof cnpjsOrderByRelevanceFieldEnum)[keyof typeof cnpjsOrderByRelevanceFieldEnum]
@@ -7455,7 +7456,7 @@ export namespace Prisma {
     name?: StringFilter<"users"> | string
     cpf?: StringFilter<"users"> | string
     personType?: EnumPersonTypeFilter<"users"> | $Enums.PersonType
-    user_cnpjs?: User_cnpjsListRelationFilter
+    users_cnpjs?: Users_cnpjsListRelationFilter
     phones?: PhonesListRelationFilter
     address?: AddressListRelationFilter
     emails?: EmailsListRelationFilter
@@ -7466,7 +7467,7 @@ export namespace Prisma {
     name?: SortOrder
     cpf?: SortOrder
     personType?: SortOrder
-    user_cnpjs?: user_cnpjsOrderByRelationAggregateInput
+    users_cnpjs?: users_cnpjsOrderByRelationAggregateInput
     phones?: phonesOrderByRelationAggregateInput
     address?: addressOrderByRelationAggregateInput
     emails?: emailsOrderByRelationAggregateInput
@@ -7475,17 +7476,17 @@ export namespace Prisma {
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    cpf?: string
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
     name?: StringFilter<"users"> | string
-    cpf?: StringFilter<"users"> | string
     personType?: EnumPersonTypeFilter<"users"> | $Enums.PersonType
-    user_cnpjs?: User_cnpjsListRelationFilter
+    users_cnpjs?: Users_cnpjsListRelationFilter
     phones?: PhonesListRelationFilter
     address?: AddressListRelationFilter
     emails?: EmailsListRelationFilter
-  }, "id">
+  }, "id" | "cpf">
 
   export type usersOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7514,14 +7515,14 @@ export namespace Prisma {
     OR?: cnpjsWhereInput[]
     NOT?: cnpjsWhereInput | cnpjsWhereInput[]
     id?: IntFilter<"cnpjs"> | number
-    number?: StringFilter<"cnpjs"> | string
-    user_cnpjs?: User_cnpjsListRelationFilter
+    cnpj?: StringFilter<"cnpjs"> | string
+    users_cnpjs?: Users_cnpjsListRelationFilter
   }
 
   export type cnpjsOrderByWithRelationInput = {
     id?: SortOrder
-    number?: SortOrder
-    user_cnpjs?: user_cnpjsOrderByRelationAggregateInput
+    cnpj?: SortOrder
+    users_cnpjs?: users_cnpjsOrderByRelationAggregateInput
     _relevance?: cnpjsOrderByRelevanceInput
   }
 
@@ -7530,13 +7531,13 @@ export namespace Prisma {
     AND?: cnpjsWhereInput | cnpjsWhereInput[]
     OR?: cnpjsWhereInput[]
     NOT?: cnpjsWhereInput | cnpjsWhereInput[]
-    number?: StringFilter<"cnpjs"> | string
-    user_cnpjs?: User_cnpjsListRelationFilter
+    cnpj?: StringFilter<"cnpjs"> | string
+    users_cnpjs?: Users_cnpjsListRelationFilter
   }, "id">
 
   export type cnpjsOrderByWithAggregationInput = {
     id?: SortOrder
-    number?: SortOrder
+    cnpj?: SortOrder
     _count?: cnpjsCountOrderByAggregateInput
     _avg?: cnpjsAvgOrderByAggregateInput
     _max?: cnpjsMaxOrderByAggregateInput
@@ -7549,21 +7550,21 @@ export namespace Prisma {
     OR?: cnpjsScalarWhereWithAggregatesInput[]
     NOT?: cnpjsScalarWhereWithAggregatesInput | cnpjsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"cnpjs"> | number
-    number?: StringWithAggregatesFilter<"cnpjs"> | string
+    cnpj?: StringWithAggregatesFilter<"cnpjs"> | string
   }
 
-  export type user_cnpjsWhereInput = {
-    AND?: user_cnpjsWhereInput | user_cnpjsWhereInput[]
-    OR?: user_cnpjsWhereInput[]
-    NOT?: user_cnpjsWhereInput | user_cnpjsWhereInput[]
-    id?: IntFilter<"user_cnpjs"> | number
-    usersId?: IntFilter<"user_cnpjs"> | number
-    cnpjsId?: IntFilter<"user_cnpjs"> | number
+  export type users_cnpjsWhereInput = {
+    AND?: users_cnpjsWhereInput | users_cnpjsWhereInput[]
+    OR?: users_cnpjsWhereInput[]
+    NOT?: users_cnpjsWhereInput | users_cnpjsWhereInput[]
+    id?: IntFilter<"users_cnpjs"> | number
+    usersId?: IntFilter<"users_cnpjs"> | number
+    cnpjsId?: IntFilter<"users_cnpjs"> | number
     user?: XOR<UsersScalarRelationFilter, usersWhereInput>
     cnpj?: XOR<CnpjsScalarRelationFilter, cnpjsWhereInput>
   }
 
-  export type user_cnpjsOrderByWithRelationInput = {
+  export type users_cnpjsOrderByWithRelationInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
@@ -7571,35 +7572,35 @@ export namespace Prisma {
     cnpj?: cnpjsOrderByWithRelationInput
   }
 
-  export type user_cnpjsWhereUniqueInput = Prisma.AtLeast<{
+  export type users_cnpjsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: user_cnpjsWhereInput | user_cnpjsWhereInput[]
-    OR?: user_cnpjsWhereInput[]
-    NOT?: user_cnpjsWhereInput | user_cnpjsWhereInput[]
-    usersId?: IntFilter<"user_cnpjs"> | number
-    cnpjsId?: IntFilter<"user_cnpjs"> | number
+    AND?: users_cnpjsWhereInput | users_cnpjsWhereInput[]
+    OR?: users_cnpjsWhereInput[]
+    NOT?: users_cnpjsWhereInput | users_cnpjsWhereInput[]
+    usersId?: IntFilter<"users_cnpjs"> | number
+    cnpjsId?: IntFilter<"users_cnpjs"> | number
     user?: XOR<UsersScalarRelationFilter, usersWhereInput>
     cnpj?: XOR<CnpjsScalarRelationFilter, cnpjsWhereInput>
   }, "id">
 
-  export type user_cnpjsOrderByWithAggregationInput = {
+  export type users_cnpjsOrderByWithAggregationInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
-    _count?: user_cnpjsCountOrderByAggregateInput
-    _avg?: user_cnpjsAvgOrderByAggregateInput
-    _max?: user_cnpjsMaxOrderByAggregateInput
-    _min?: user_cnpjsMinOrderByAggregateInput
-    _sum?: user_cnpjsSumOrderByAggregateInput
+    _count?: users_cnpjsCountOrderByAggregateInput
+    _avg?: users_cnpjsAvgOrderByAggregateInput
+    _max?: users_cnpjsMaxOrderByAggregateInput
+    _min?: users_cnpjsMinOrderByAggregateInput
+    _sum?: users_cnpjsSumOrderByAggregateInput
   }
 
-  export type user_cnpjsScalarWhereWithAggregatesInput = {
-    AND?: user_cnpjsScalarWhereWithAggregatesInput | user_cnpjsScalarWhereWithAggregatesInput[]
-    OR?: user_cnpjsScalarWhereWithAggregatesInput[]
-    NOT?: user_cnpjsScalarWhereWithAggregatesInput | user_cnpjsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"user_cnpjs"> | number
-    usersId?: IntWithAggregatesFilter<"user_cnpjs"> | number
-    cnpjsId?: IntWithAggregatesFilter<"user_cnpjs"> | number
+  export type users_cnpjsScalarWhereWithAggregatesInput = {
+    AND?: users_cnpjsScalarWhereWithAggregatesInput | users_cnpjsScalarWhereWithAggregatesInput[]
+    OR?: users_cnpjsScalarWhereWithAggregatesInput[]
+    NOT?: users_cnpjsScalarWhereWithAggregatesInput | users_cnpjsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"users_cnpjs"> | number
+    usersId?: IntWithAggregatesFilter<"users_cnpjs"> | number
+    cnpjsId?: IntWithAggregatesFilter<"users_cnpjs"> | number
   }
 
   export type phonesWhereInput = {
@@ -7785,7 +7786,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsCreateNestedManyWithoutUserInput
     phones?: phonesCreateNestedManyWithoutUserInput
     address?: addressCreateNestedManyWithoutUserInput
     emails?: emailsCreateNestedManyWithoutUserInput
@@ -7796,7 +7797,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsUncheckedCreateNestedManyWithoutUserInput
     phones?: phonesUncheckedCreateNestedManyWithoutUserInput
     address?: addressUncheckedCreateNestedManyWithoutUserInput
     emails?: emailsUncheckedCreateNestedManyWithoutUserInput
@@ -7806,7 +7807,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUpdateManyWithoutUserNestedInput
     phones?: phonesUpdateManyWithoutUserNestedInput
     address?: addressUpdateManyWithoutUserNestedInput
     emails?: emailsUpdateManyWithoutUserNestedInput
@@ -7817,7 +7818,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUncheckedUpdateManyWithoutUserNestedInput
     phones?: phonesUncheckedUpdateManyWithoutUserNestedInput
     address?: addressUncheckedUpdateManyWithoutUserNestedInput
     emails?: emailsUncheckedUpdateManyWithoutUserNestedInput
@@ -7844,74 +7845,74 @@ export namespace Prisma {
   }
 
   export type cnpjsCreateInput = {
-    number: string
-    user_cnpjs?: user_cnpjsCreateNestedManyWithoutCnpjInput
+    cnpj: string
+    users_cnpjs?: users_cnpjsCreateNestedManyWithoutCnpjInput
   }
 
   export type cnpjsUncheckedCreateInput = {
     id?: number
-    number: string
-    user_cnpjs?: user_cnpjsUncheckedCreateNestedManyWithoutCnpjInput
+    cnpj: string
+    users_cnpjs?: users_cnpjsUncheckedCreateNestedManyWithoutCnpjInput
   }
 
   export type cnpjsUpdateInput = {
-    number?: StringFieldUpdateOperationsInput | string
-    user_cnpjs?: user_cnpjsUpdateManyWithoutCnpjNestedInput
+    cnpj?: StringFieldUpdateOperationsInput | string
+    users_cnpjs?: users_cnpjsUpdateManyWithoutCnpjNestedInput
   }
 
   export type cnpjsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    number?: StringFieldUpdateOperationsInput | string
-    user_cnpjs?: user_cnpjsUncheckedUpdateManyWithoutCnpjNestedInput
+    cnpj?: StringFieldUpdateOperationsInput | string
+    users_cnpjs?: users_cnpjsUncheckedUpdateManyWithoutCnpjNestedInput
   }
 
   export type cnpjsCreateManyInput = {
     id?: number
-    number: string
+    cnpj: string
   }
 
   export type cnpjsUpdateManyMutationInput = {
-    number?: StringFieldUpdateOperationsInput | string
+    cnpj?: StringFieldUpdateOperationsInput | string
   }
 
   export type cnpjsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    number?: StringFieldUpdateOperationsInput | string
+    cnpj?: StringFieldUpdateOperationsInput | string
   }
 
-  export type user_cnpjsCreateInput = {
-    user: usersCreateNestedOneWithoutUser_cnpjsInput
-    cnpj: cnpjsCreateNestedOneWithoutUser_cnpjsInput
+  export type users_cnpjsCreateInput = {
+    user: usersCreateNestedOneWithoutUsers_cnpjsInput
+    cnpj: cnpjsCreateNestedOneWithoutUsers_cnpjsInput
   }
 
-  export type user_cnpjsUncheckedCreateInput = {
+  export type users_cnpjsUncheckedCreateInput = {
     id?: number
     usersId: number
     cnpjsId: number
   }
 
-  export type user_cnpjsUpdateInput = {
-    user?: usersUpdateOneRequiredWithoutUser_cnpjsNestedInput
-    cnpj?: cnpjsUpdateOneRequiredWithoutUser_cnpjsNestedInput
+  export type users_cnpjsUpdateInput = {
+    user?: usersUpdateOneRequiredWithoutUsers_cnpjsNestedInput
+    cnpj?: cnpjsUpdateOneRequiredWithoutUsers_cnpjsNestedInput
   }
 
-  export type user_cnpjsUncheckedUpdateInput = {
+  export type users_cnpjsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     usersId?: IntFieldUpdateOperationsInput | number
     cnpjsId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type user_cnpjsCreateManyInput = {
+  export type users_cnpjsCreateManyInput = {
     id?: number
     usersId: number
     cnpjsId: number
   }
 
-  export type user_cnpjsUpdateManyMutationInput = {
+  export type users_cnpjsUpdateManyMutationInput = {
 
   }
 
-  export type user_cnpjsUncheckedUpdateManyInput = {
+  export type users_cnpjsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     usersId?: IntFieldUpdateOperationsInput | number
     cnpjsId?: IntFieldUpdateOperationsInput | number
@@ -8113,10 +8114,10 @@ export namespace Prisma {
     not?: NestedEnumPersonTypeFilter<$PrismaModel> | $Enums.PersonType
   }
 
-  export type User_cnpjsListRelationFilter = {
-    every?: user_cnpjsWhereInput
-    some?: user_cnpjsWhereInput
-    none?: user_cnpjsWhereInput
+  export type Users_cnpjsListRelationFilter = {
+    every?: users_cnpjsWhereInput
+    some?: users_cnpjsWhereInput
+    none?: users_cnpjsWhereInput
   }
 
   export type PhonesListRelationFilter = {
@@ -8137,7 +8138,7 @@ export namespace Prisma {
     none?: emailsWhereInput
   }
 
-  export type user_cnpjsOrderByRelationAggregateInput = {
+  export type users_cnpjsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8240,7 +8241,7 @@ export namespace Prisma {
 
   export type cnpjsCountOrderByAggregateInput = {
     id?: SortOrder
-    number?: SortOrder
+    cnpj?: SortOrder
   }
 
   export type cnpjsAvgOrderByAggregateInput = {
@@ -8249,12 +8250,12 @@ export namespace Prisma {
 
   export type cnpjsMaxOrderByAggregateInput = {
     id?: SortOrder
-    number?: SortOrder
+    cnpj?: SortOrder
   }
 
   export type cnpjsMinOrderByAggregateInput = {
     id?: SortOrder
-    number?: SortOrder
+    cnpj?: SortOrder
   }
 
   export type cnpjsSumOrderByAggregateInput = {
@@ -8271,31 +8272,31 @@ export namespace Prisma {
     isNot?: cnpjsWhereInput
   }
 
-  export type user_cnpjsCountOrderByAggregateInput = {
+  export type users_cnpjsCountOrderByAggregateInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
   }
 
-  export type user_cnpjsAvgOrderByAggregateInput = {
+  export type users_cnpjsAvgOrderByAggregateInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
   }
 
-  export type user_cnpjsMaxOrderByAggregateInput = {
+  export type users_cnpjsMaxOrderByAggregateInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
   }
 
-  export type user_cnpjsMinOrderByAggregateInput = {
+  export type users_cnpjsMinOrderByAggregateInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
   }
 
-  export type user_cnpjsSumOrderByAggregateInput = {
+  export type users_cnpjsSumOrderByAggregateInput = {
     id?: SortOrder
     usersId?: SortOrder
     cnpjsId?: SortOrder
@@ -8443,11 +8444,11 @@ export namespace Prisma {
     usersId?: SortOrder
   }
 
-  export type user_cnpjsCreateNestedManyWithoutUserInput = {
-    create?: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput> | user_cnpjsCreateWithoutUserInput[] | user_cnpjsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutUserInput | user_cnpjsCreateOrConnectWithoutUserInput[]
-    createMany?: user_cnpjsCreateManyUserInputEnvelope
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
+  export type users_cnpjsCreateNestedManyWithoutUserInput = {
+    create?: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput> | users_cnpjsCreateWithoutUserInput[] | users_cnpjsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutUserInput | users_cnpjsCreateOrConnectWithoutUserInput[]
+    createMany?: users_cnpjsCreateManyUserInputEnvelope
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
   }
 
   export type phonesCreateNestedManyWithoutUserInput = {
@@ -8471,11 +8472,11 @@ export namespace Prisma {
     connect?: emailsWhereUniqueInput | emailsWhereUniqueInput[]
   }
 
-  export type user_cnpjsUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput> | user_cnpjsCreateWithoutUserInput[] | user_cnpjsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutUserInput | user_cnpjsCreateOrConnectWithoutUserInput[]
-    createMany?: user_cnpjsCreateManyUserInputEnvelope
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
+  export type users_cnpjsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput> | users_cnpjsCreateWithoutUserInput[] | users_cnpjsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutUserInput | users_cnpjsCreateOrConnectWithoutUserInput[]
+    createMany?: users_cnpjsCreateManyUserInputEnvelope
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
   }
 
   export type phonesUncheckedCreateNestedManyWithoutUserInput = {
@@ -8507,18 +8508,18 @@ export namespace Prisma {
     set?: $Enums.PersonType
   }
 
-  export type user_cnpjsUpdateManyWithoutUserNestedInput = {
-    create?: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput> | user_cnpjsCreateWithoutUserInput[] | user_cnpjsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutUserInput | user_cnpjsCreateOrConnectWithoutUserInput[]
-    upsert?: user_cnpjsUpsertWithWhereUniqueWithoutUserInput | user_cnpjsUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: user_cnpjsCreateManyUserInputEnvelope
-    set?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    disconnect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    delete?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    update?: user_cnpjsUpdateWithWhereUniqueWithoutUserInput | user_cnpjsUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: user_cnpjsUpdateManyWithWhereWithoutUserInput | user_cnpjsUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
+  export type users_cnpjsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput> | users_cnpjsCreateWithoutUserInput[] | users_cnpjsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutUserInput | users_cnpjsCreateOrConnectWithoutUserInput[]
+    upsert?: users_cnpjsUpsertWithWhereUniqueWithoutUserInput | users_cnpjsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: users_cnpjsCreateManyUserInputEnvelope
+    set?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    disconnect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    delete?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    update?: users_cnpjsUpdateWithWhereUniqueWithoutUserInput | users_cnpjsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: users_cnpjsUpdateManyWithWhereWithoutUserInput | users_cnpjsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
   }
 
   export type phonesUpdateManyWithoutUserNestedInput = {
@@ -8571,18 +8572,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type user_cnpjsUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput> | user_cnpjsCreateWithoutUserInput[] | user_cnpjsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutUserInput | user_cnpjsCreateOrConnectWithoutUserInput[]
-    upsert?: user_cnpjsUpsertWithWhereUniqueWithoutUserInput | user_cnpjsUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: user_cnpjsCreateManyUserInputEnvelope
-    set?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    disconnect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    delete?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    update?: user_cnpjsUpdateWithWhereUniqueWithoutUserInput | user_cnpjsUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: user_cnpjsUpdateManyWithWhereWithoutUserInput | user_cnpjsUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
+  export type users_cnpjsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput> | users_cnpjsCreateWithoutUserInput[] | users_cnpjsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutUserInput | users_cnpjsCreateOrConnectWithoutUserInput[]
+    upsert?: users_cnpjsUpsertWithWhereUniqueWithoutUserInput | users_cnpjsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: users_cnpjsCreateManyUserInputEnvelope
+    set?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    disconnect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    delete?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    update?: users_cnpjsUpdateWithWhereUniqueWithoutUserInput | users_cnpjsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: users_cnpjsUpdateManyWithWhereWithoutUserInput | users_cnpjsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
   }
 
   export type phonesUncheckedUpdateManyWithoutUserNestedInput = {
@@ -8627,74 +8628,74 @@ export namespace Prisma {
     deleteMany?: emailsScalarWhereInput | emailsScalarWhereInput[]
   }
 
-  export type user_cnpjsCreateNestedManyWithoutCnpjInput = {
-    create?: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput> | user_cnpjsCreateWithoutCnpjInput[] | user_cnpjsUncheckedCreateWithoutCnpjInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutCnpjInput | user_cnpjsCreateOrConnectWithoutCnpjInput[]
-    createMany?: user_cnpjsCreateManyCnpjInputEnvelope
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
+  export type users_cnpjsCreateNestedManyWithoutCnpjInput = {
+    create?: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput> | users_cnpjsCreateWithoutCnpjInput[] | users_cnpjsUncheckedCreateWithoutCnpjInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutCnpjInput | users_cnpjsCreateOrConnectWithoutCnpjInput[]
+    createMany?: users_cnpjsCreateManyCnpjInputEnvelope
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
   }
 
-  export type user_cnpjsUncheckedCreateNestedManyWithoutCnpjInput = {
-    create?: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput> | user_cnpjsCreateWithoutCnpjInput[] | user_cnpjsUncheckedCreateWithoutCnpjInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutCnpjInput | user_cnpjsCreateOrConnectWithoutCnpjInput[]
-    createMany?: user_cnpjsCreateManyCnpjInputEnvelope
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
+  export type users_cnpjsUncheckedCreateNestedManyWithoutCnpjInput = {
+    create?: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput> | users_cnpjsCreateWithoutCnpjInput[] | users_cnpjsUncheckedCreateWithoutCnpjInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutCnpjInput | users_cnpjsCreateOrConnectWithoutCnpjInput[]
+    createMany?: users_cnpjsCreateManyCnpjInputEnvelope
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
   }
 
-  export type user_cnpjsUpdateManyWithoutCnpjNestedInput = {
-    create?: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput> | user_cnpjsCreateWithoutCnpjInput[] | user_cnpjsUncheckedCreateWithoutCnpjInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutCnpjInput | user_cnpjsCreateOrConnectWithoutCnpjInput[]
-    upsert?: user_cnpjsUpsertWithWhereUniqueWithoutCnpjInput | user_cnpjsUpsertWithWhereUniqueWithoutCnpjInput[]
-    createMany?: user_cnpjsCreateManyCnpjInputEnvelope
-    set?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    disconnect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    delete?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    update?: user_cnpjsUpdateWithWhereUniqueWithoutCnpjInput | user_cnpjsUpdateWithWhereUniqueWithoutCnpjInput[]
-    updateMany?: user_cnpjsUpdateManyWithWhereWithoutCnpjInput | user_cnpjsUpdateManyWithWhereWithoutCnpjInput[]
-    deleteMany?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
+  export type users_cnpjsUpdateManyWithoutCnpjNestedInput = {
+    create?: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput> | users_cnpjsCreateWithoutCnpjInput[] | users_cnpjsUncheckedCreateWithoutCnpjInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutCnpjInput | users_cnpjsCreateOrConnectWithoutCnpjInput[]
+    upsert?: users_cnpjsUpsertWithWhereUniqueWithoutCnpjInput | users_cnpjsUpsertWithWhereUniqueWithoutCnpjInput[]
+    createMany?: users_cnpjsCreateManyCnpjInputEnvelope
+    set?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    disconnect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    delete?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    update?: users_cnpjsUpdateWithWhereUniqueWithoutCnpjInput | users_cnpjsUpdateWithWhereUniqueWithoutCnpjInput[]
+    updateMany?: users_cnpjsUpdateManyWithWhereWithoutCnpjInput | users_cnpjsUpdateManyWithWhereWithoutCnpjInput[]
+    deleteMany?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
   }
 
-  export type user_cnpjsUncheckedUpdateManyWithoutCnpjNestedInput = {
-    create?: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput> | user_cnpjsCreateWithoutCnpjInput[] | user_cnpjsUncheckedCreateWithoutCnpjInput[]
-    connectOrCreate?: user_cnpjsCreateOrConnectWithoutCnpjInput | user_cnpjsCreateOrConnectWithoutCnpjInput[]
-    upsert?: user_cnpjsUpsertWithWhereUniqueWithoutCnpjInput | user_cnpjsUpsertWithWhereUniqueWithoutCnpjInput[]
-    createMany?: user_cnpjsCreateManyCnpjInputEnvelope
-    set?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    disconnect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    delete?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    connect?: user_cnpjsWhereUniqueInput | user_cnpjsWhereUniqueInput[]
-    update?: user_cnpjsUpdateWithWhereUniqueWithoutCnpjInput | user_cnpjsUpdateWithWhereUniqueWithoutCnpjInput[]
-    updateMany?: user_cnpjsUpdateManyWithWhereWithoutCnpjInput | user_cnpjsUpdateManyWithWhereWithoutCnpjInput[]
-    deleteMany?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
+  export type users_cnpjsUncheckedUpdateManyWithoutCnpjNestedInput = {
+    create?: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput> | users_cnpjsCreateWithoutCnpjInput[] | users_cnpjsUncheckedCreateWithoutCnpjInput[]
+    connectOrCreate?: users_cnpjsCreateOrConnectWithoutCnpjInput | users_cnpjsCreateOrConnectWithoutCnpjInput[]
+    upsert?: users_cnpjsUpsertWithWhereUniqueWithoutCnpjInput | users_cnpjsUpsertWithWhereUniqueWithoutCnpjInput[]
+    createMany?: users_cnpjsCreateManyCnpjInputEnvelope
+    set?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    disconnect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    delete?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    connect?: users_cnpjsWhereUniqueInput | users_cnpjsWhereUniqueInput[]
+    update?: users_cnpjsUpdateWithWhereUniqueWithoutCnpjInput | users_cnpjsUpdateWithWhereUniqueWithoutCnpjInput[]
+    updateMany?: users_cnpjsUpdateManyWithWhereWithoutCnpjInput | users_cnpjsUpdateManyWithWhereWithoutCnpjInput[]
+    deleteMany?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
   }
 
-  export type usersCreateNestedOneWithoutUser_cnpjsInput = {
-    create?: XOR<usersCreateWithoutUser_cnpjsInput, usersUncheckedCreateWithoutUser_cnpjsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutUser_cnpjsInput
+  export type usersCreateNestedOneWithoutUsers_cnpjsInput = {
+    create?: XOR<usersCreateWithoutUsers_cnpjsInput, usersUncheckedCreateWithoutUsers_cnpjsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutUsers_cnpjsInput
     connect?: usersWhereUniqueInput
   }
 
-  export type cnpjsCreateNestedOneWithoutUser_cnpjsInput = {
-    create?: XOR<cnpjsCreateWithoutUser_cnpjsInput, cnpjsUncheckedCreateWithoutUser_cnpjsInput>
-    connectOrCreate?: cnpjsCreateOrConnectWithoutUser_cnpjsInput
+  export type cnpjsCreateNestedOneWithoutUsers_cnpjsInput = {
+    create?: XOR<cnpjsCreateWithoutUsers_cnpjsInput, cnpjsUncheckedCreateWithoutUsers_cnpjsInput>
+    connectOrCreate?: cnpjsCreateOrConnectWithoutUsers_cnpjsInput
     connect?: cnpjsWhereUniqueInput
   }
 
-  export type usersUpdateOneRequiredWithoutUser_cnpjsNestedInput = {
-    create?: XOR<usersCreateWithoutUser_cnpjsInput, usersUncheckedCreateWithoutUser_cnpjsInput>
-    connectOrCreate?: usersCreateOrConnectWithoutUser_cnpjsInput
-    upsert?: usersUpsertWithoutUser_cnpjsInput
+  export type usersUpdateOneRequiredWithoutUsers_cnpjsNestedInput = {
+    create?: XOR<usersCreateWithoutUsers_cnpjsInput, usersUncheckedCreateWithoutUsers_cnpjsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutUsers_cnpjsInput
+    upsert?: usersUpsertWithoutUsers_cnpjsInput
     connect?: usersWhereUniqueInput
-    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutUser_cnpjsInput, usersUpdateWithoutUser_cnpjsInput>, usersUncheckedUpdateWithoutUser_cnpjsInput>
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutUsers_cnpjsInput, usersUpdateWithoutUsers_cnpjsInput>, usersUncheckedUpdateWithoutUsers_cnpjsInput>
   }
 
-  export type cnpjsUpdateOneRequiredWithoutUser_cnpjsNestedInput = {
-    create?: XOR<cnpjsCreateWithoutUser_cnpjsInput, cnpjsUncheckedCreateWithoutUser_cnpjsInput>
-    connectOrCreate?: cnpjsCreateOrConnectWithoutUser_cnpjsInput
-    upsert?: cnpjsUpsertWithoutUser_cnpjsInput
+  export type cnpjsUpdateOneRequiredWithoutUsers_cnpjsNestedInput = {
+    create?: XOR<cnpjsCreateWithoutUsers_cnpjsInput, cnpjsUncheckedCreateWithoutUsers_cnpjsInput>
+    connectOrCreate?: cnpjsCreateOrConnectWithoutUsers_cnpjsInput
+    upsert?: cnpjsUpsertWithoutUsers_cnpjsInput
     connect?: cnpjsWhereUniqueInput
-    update?: XOR<XOR<cnpjsUpdateToOneWithWhereWithoutUser_cnpjsInput, cnpjsUpdateWithoutUser_cnpjsInput>, cnpjsUncheckedUpdateWithoutUser_cnpjsInput>
+    update?: XOR<XOR<cnpjsUpdateToOneWithWhereWithoutUsers_cnpjsInput, cnpjsUpdateWithoutUsers_cnpjsInput>, cnpjsUncheckedUpdateWithoutUsers_cnpjsInput>
   }
 
   export type usersCreateNestedOneWithoutPhonesInput = {
@@ -8848,22 +8849,22 @@ export namespace Prisma {
     _max?: NestedEnumPhoneTypeFilter<$PrismaModel>
   }
 
-  export type user_cnpjsCreateWithoutUserInput = {
-    cnpj: cnpjsCreateNestedOneWithoutUser_cnpjsInput
+  export type users_cnpjsCreateWithoutUserInput = {
+    cnpj: cnpjsCreateNestedOneWithoutUsers_cnpjsInput
   }
 
-  export type user_cnpjsUncheckedCreateWithoutUserInput = {
+  export type users_cnpjsUncheckedCreateWithoutUserInput = {
     id?: number
     cnpjsId: number
   }
 
-  export type user_cnpjsCreateOrConnectWithoutUserInput = {
-    where: user_cnpjsWhereUniqueInput
-    create: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput>
+  export type users_cnpjsCreateOrConnectWithoutUserInput = {
+    where: users_cnpjsWhereUniqueInput
+    create: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput>
   }
 
-  export type user_cnpjsCreateManyUserInputEnvelope = {
-    data: user_cnpjsCreateManyUserInput | user_cnpjsCreateManyUserInput[]
+  export type users_cnpjsCreateManyUserInputEnvelope = {
+    data: users_cnpjsCreateManyUserInput | users_cnpjsCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8938,29 +8939,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type user_cnpjsUpsertWithWhereUniqueWithoutUserInput = {
-    where: user_cnpjsWhereUniqueInput
-    update: XOR<user_cnpjsUpdateWithoutUserInput, user_cnpjsUncheckedUpdateWithoutUserInput>
-    create: XOR<user_cnpjsCreateWithoutUserInput, user_cnpjsUncheckedCreateWithoutUserInput>
+  export type users_cnpjsUpsertWithWhereUniqueWithoutUserInput = {
+    where: users_cnpjsWhereUniqueInput
+    update: XOR<users_cnpjsUpdateWithoutUserInput, users_cnpjsUncheckedUpdateWithoutUserInput>
+    create: XOR<users_cnpjsCreateWithoutUserInput, users_cnpjsUncheckedCreateWithoutUserInput>
   }
 
-  export type user_cnpjsUpdateWithWhereUniqueWithoutUserInput = {
-    where: user_cnpjsWhereUniqueInput
-    data: XOR<user_cnpjsUpdateWithoutUserInput, user_cnpjsUncheckedUpdateWithoutUserInput>
+  export type users_cnpjsUpdateWithWhereUniqueWithoutUserInput = {
+    where: users_cnpjsWhereUniqueInput
+    data: XOR<users_cnpjsUpdateWithoutUserInput, users_cnpjsUncheckedUpdateWithoutUserInput>
   }
 
-  export type user_cnpjsUpdateManyWithWhereWithoutUserInput = {
-    where: user_cnpjsScalarWhereInput
-    data: XOR<user_cnpjsUpdateManyMutationInput, user_cnpjsUncheckedUpdateManyWithoutUserInput>
+  export type users_cnpjsUpdateManyWithWhereWithoutUserInput = {
+    where: users_cnpjsScalarWhereInput
+    data: XOR<users_cnpjsUpdateManyMutationInput, users_cnpjsUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type user_cnpjsScalarWhereInput = {
-    AND?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
-    OR?: user_cnpjsScalarWhereInput[]
-    NOT?: user_cnpjsScalarWhereInput | user_cnpjsScalarWhereInput[]
-    id?: IntFilter<"user_cnpjs"> | number
-    usersId?: IntFilter<"user_cnpjs"> | number
-    cnpjsId?: IntFilter<"user_cnpjs"> | number
+  export type users_cnpjsScalarWhereInput = {
+    AND?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
+    OR?: users_cnpjsScalarWhereInput[]
+    NOT?: users_cnpjsScalarWhereInput | users_cnpjsScalarWhereInput[]
+    id?: IntFilter<"users_cnpjs"> | number
+    usersId?: IntFilter<"users_cnpjs"> | number
+    cnpjsId?: IntFilter<"users_cnpjs"> | number
   }
 
   export type phonesUpsertWithWhereUniqueWithoutUserInput = {
@@ -9045,42 +9046,42 @@ export namespace Prisma {
     usersId?: IntFilter<"emails"> | number
   }
 
-  export type user_cnpjsCreateWithoutCnpjInput = {
-    user: usersCreateNestedOneWithoutUser_cnpjsInput
+  export type users_cnpjsCreateWithoutCnpjInput = {
+    user: usersCreateNestedOneWithoutUsers_cnpjsInput
   }
 
-  export type user_cnpjsUncheckedCreateWithoutCnpjInput = {
+  export type users_cnpjsUncheckedCreateWithoutCnpjInput = {
     id?: number
     usersId: number
   }
 
-  export type user_cnpjsCreateOrConnectWithoutCnpjInput = {
-    where: user_cnpjsWhereUniqueInput
-    create: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput>
+  export type users_cnpjsCreateOrConnectWithoutCnpjInput = {
+    where: users_cnpjsWhereUniqueInput
+    create: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput>
   }
 
-  export type user_cnpjsCreateManyCnpjInputEnvelope = {
-    data: user_cnpjsCreateManyCnpjInput | user_cnpjsCreateManyCnpjInput[]
+  export type users_cnpjsCreateManyCnpjInputEnvelope = {
+    data: users_cnpjsCreateManyCnpjInput | users_cnpjsCreateManyCnpjInput[]
     skipDuplicates?: boolean
   }
 
-  export type user_cnpjsUpsertWithWhereUniqueWithoutCnpjInput = {
-    where: user_cnpjsWhereUniqueInput
-    update: XOR<user_cnpjsUpdateWithoutCnpjInput, user_cnpjsUncheckedUpdateWithoutCnpjInput>
-    create: XOR<user_cnpjsCreateWithoutCnpjInput, user_cnpjsUncheckedCreateWithoutCnpjInput>
+  export type users_cnpjsUpsertWithWhereUniqueWithoutCnpjInput = {
+    where: users_cnpjsWhereUniqueInput
+    update: XOR<users_cnpjsUpdateWithoutCnpjInput, users_cnpjsUncheckedUpdateWithoutCnpjInput>
+    create: XOR<users_cnpjsCreateWithoutCnpjInput, users_cnpjsUncheckedCreateWithoutCnpjInput>
   }
 
-  export type user_cnpjsUpdateWithWhereUniqueWithoutCnpjInput = {
-    where: user_cnpjsWhereUniqueInput
-    data: XOR<user_cnpjsUpdateWithoutCnpjInput, user_cnpjsUncheckedUpdateWithoutCnpjInput>
+  export type users_cnpjsUpdateWithWhereUniqueWithoutCnpjInput = {
+    where: users_cnpjsWhereUniqueInput
+    data: XOR<users_cnpjsUpdateWithoutCnpjInput, users_cnpjsUncheckedUpdateWithoutCnpjInput>
   }
 
-  export type user_cnpjsUpdateManyWithWhereWithoutCnpjInput = {
-    where: user_cnpjsScalarWhereInput
-    data: XOR<user_cnpjsUpdateManyMutationInput, user_cnpjsUncheckedUpdateManyWithoutCnpjInput>
+  export type users_cnpjsUpdateManyWithWhereWithoutCnpjInput = {
+    where: users_cnpjsScalarWhereInput
+    data: XOR<users_cnpjsUpdateManyMutationInput, users_cnpjsUncheckedUpdateManyWithoutCnpjInput>
   }
 
-  export type usersCreateWithoutUser_cnpjsInput = {
+  export type usersCreateWithoutUsers_cnpjsInput = {
     name: string
     cpf: string
     personType: $Enums.PersonType
@@ -9089,7 +9090,7 @@ export namespace Prisma {
     emails?: emailsCreateNestedManyWithoutUserInput
   }
 
-  export type usersUncheckedCreateWithoutUser_cnpjsInput = {
+  export type usersUncheckedCreateWithoutUsers_cnpjsInput = {
     id?: number
     name: string
     cpf: string
@@ -9099,37 +9100,37 @@ export namespace Prisma {
     emails?: emailsUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type usersCreateOrConnectWithoutUser_cnpjsInput = {
+  export type usersCreateOrConnectWithoutUsers_cnpjsInput = {
     where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutUser_cnpjsInput, usersUncheckedCreateWithoutUser_cnpjsInput>
+    create: XOR<usersCreateWithoutUsers_cnpjsInput, usersUncheckedCreateWithoutUsers_cnpjsInput>
   }
 
-  export type cnpjsCreateWithoutUser_cnpjsInput = {
-    number: string
+  export type cnpjsCreateWithoutUsers_cnpjsInput = {
+    cnpj: string
   }
 
-  export type cnpjsUncheckedCreateWithoutUser_cnpjsInput = {
+  export type cnpjsUncheckedCreateWithoutUsers_cnpjsInput = {
     id?: number
-    number: string
+    cnpj: string
   }
 
-  export type cnpjsCreateOrConnectWithoutUser_cnpjsInput = {
+  export type cnpjsCreateOrConnectWithoutUsers_cnpjsInput = {
     where: cnpjsWhereUniqueInput
-    create: XOR<cnpjsCreateWithoutUser_cnpjsInput, cnpjsUncheckedCreateWithoutUser_cnpjsInput>
+    create: XOR<cnpjsCreateWithoutUsers_cnpjsInput, cnpjsUncheckedCreateWithoutUsers_cnpjsInput>
   }
 
-  export type usersUpsertWithoutUser_cnpjsInput = {
-    update: XOR<usersUpdateWithoutUser_cnpjsInput, usersUncheckedUpdateWithoutUser_cnpjsInput>
-    create: XOR<usersCreateWithoutUser_cnpjsInput, usersUncheckedCreateWithoutUser_cnpjsInput>
+  export type usersUpsertWithoutUsers_cnpjsInput = {
+    update: XOR<usersUpdateWithoutUsers_cnpjsInput, usersUncheckedUpdateWithoutUsers_cnpjsInput>
+    create: XOR<usersCreateWithoutUsers_cnpjsInput, usersUncheckedCreateWithoutUsers_cnpjsInput>
     where?: usersWhereInput
   }
 
-  export type usersUpdateToOneWithWhereWithoutUser_cnpjsInput = {
+  export type usersUpdateToOneWithWhereWithoutUsers_cnpjsInput = {
     where?: usersWhereInput
-    data: XOR<usersUpdateWithoutUser_cnpjsInput, usersUncheckedUpdateWithoutUser_cnpjsInput>
+    data: XOR<usersUpdateWithoutUsers_cnpjsInput, usersUncheckedUpdateWithoutUsers_cnpjsInput>
   }
 
-  export type usersUpdateWithoutUser_cnpjsInput = {
+  export type usersUpdateWithoutUsers_cnpjsInput = {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
@@ -9138,7 +9139,7 @@ export namespace Prisma {
     emails?: emailsUpdateManyWithoutUserNestedInput
   }
 
-  export type usersUncheckedUpdateWithoutUser_cnpjsInput = {
+  export type usersUncheckedUpdateWithoutUsers_cnpjsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
@@ -9148,31 +9149,31 @@ export namespace Prisma {
     emails?: emailsUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type cnpjsUpsertWithoutUser_cnpjsInput = {
-    update: XOR<cnpjsUpdateWithoutUser_cnpjsInput, cnpjsUncheckedUpdateWithoutUser_cnpjsInput>
-    create: XOR<cnpjsCreateWithoutUser_cnpjsInput, cnpjsUncheckedCreateWithoutUser_cnpjsInput>
+  export type cnpjsUpsertWithoutUsers_cnpjsInput = {
+    update: XOR<cnpjsUpdateWithoutUsers_cnpjsInput, cnpjsUncheckedUpdateWithoutUsers_cnpjsInput>
+    create: XOR<cnpjsCreateWithoutUsers_cnpjsInput, cnpjsUncheckedCreateWithoutUsers_cnpjsInput>
     where?: cnpjsWhereInput
   }
 
-  export type cnpjsUpdateToOneWithWhereWithoutUser_cnpjsInput = {
+  export type cnpjsUpdateToOneWithWhereWithoutUsers_cnpjsInput = {
     where?: cnpjsWhereInput
-    data: XOR<cnpjsUpdateWithoutUser_cnpjsInput, cnpjsUncheckedUpdateWithoutUser_cnpjsInput>
+    data: XOR<cnpjsUpdateWithoutUsers_cnpjsInput, cnpjsUncheckedUpdateWithoutUsers_cnpjsInput>
   }
 
-  export type cnpjsUpdateWithoutUser_cnpjsInput = {
-    number?: StringFieldUpdateOperationsInput | string
+  export type cnpjsUpdateWithoutUsers_cnpjsInput = {
+    cnpj?: StringFieldUpdateOperationsInput | string
   }
 
-  export type cnpjsUncheckedUpdateWithoutUser_cnpjsInput = {
+  export type cnpjsUncheckedUpdateWithoutUsers_cnpjsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    number?: StringFieldUpdateOperationsInput | string
+    cnpj?: StringFieldUpdateOperationsInput | string
   }
 
   export type usersCreateWithoutPhonesInput = {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsCreateNestedManyWithoutUserInput
     address?: addressCreateNestedManyWithoutUserInput
     emails?: emailsCreateNestedManyWithoutUserInput
   }
@@ -9182,7 +9183,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsUncheckedCreateNestedManyWithoutUserInput
     address?: addressUncheckedCreateNestedManyWithoutUserInput
     emails?: emailsUncheckedCreateNestedManyWithoutUserInput
   }
@@ -9207,7 +9208,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUpdateManyWithoutUserNestedInput
     address?: addressUpdateManyWithoutUserNestedInput
     emails?: emailsUpdateManyWithoutUserNestedInput
   }
@@ -9217,7 +9218,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUncheckedUpdateManyWithoutUserNestedInput
     address?: addressUncheckedUpdateManyWithoutUserNestedInput
     emails?: emailsUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -9226,7 +9227,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsCreateNestedManyWithoutUserInput
     phones?: phonesCreateNestedManyWithoutUserInput
     emails?: emailsCreateNestedManyWithoutUserInput
   }
@@ -9236,7 +9237,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsUncheckedCreateNestedManyWithoutUserInput
     phones?: phonesUncheckedCreateNestedManyWithoutUserInput
     emails?: emailsUncheckedCreateNestedManyWithoutUserInput
   }
@@ -9261,7 +9262,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUpdateManyWithoutUserNestedInput
     phones?: phonesUpdateManyWithoutUserNestedInput
     emails?: emailsUpdateManyWithoutUserNestedInput
   }
@@ -9271,7 +9272,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUncheckedUpdateManyWithoutUserNestedInput
     phones?: phonesUncheckedUpdateManyWithoutUserNestedInput
     emails?: emailsUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -9280,7 +9281,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsCreateNestedManyWithoutUserInput
     phones?: phonesCreateNestedManyWithoutUserInput
     address?: addressCreateNestedManyWithoutUserInput
   }
@@ -9290,7 +9291,7 @@ export namespace Prisma {
     name: string
     cpf: string
     personType: $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedCreateNestedManyWithoutUserInput
+    users_cnpjs?: users_cnpjsUncheckedCreateNestedManyWithoutUserInput
     phones?: phonesUncheckedCreateNestedManyWithoutUserInput
     address?: addressUncheckedCreateNestedManyWithoutUserInput
   }
@@ -9315,7 +9316,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUpdateManyWithoutUserNestedInput
     phones?: phonesUpdateManyWithoutUserNestedInput
     address?: addressUpdateManyWithoutUserNestedInput
   }
@@ -9325,12 +9326,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
-    user_cnpjs?: user_cnpjsUncheckedUpdateManyWithoutUserNestedInput
+    users_cnpjs?: users_cnpjsUncheckedUpdateManyWithoutUserNestedInput
     phones?: phonesUncheckedUpdateManyWithoutUserNestedInput
     address?: addressUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type user_cnpjsCreateManyUserInput = {
+  export type users_cnpjsCreateManyUserInput = {
     id?: number
     cnpjsId: number
   }
@@ -9357,16 +9358,16 @@ export namespace Prisma {
     email: string
   }
 
-  export type user_cnpjsUpdateWithoutUserInput = {
-    cnpj?: cnpjsUpdateOneRequiredWithoutUser_cnpjsNestedInput
+  export type users_cnpjsUpdateWithoutUserInput = {
+    cnpj?: cnpjsUpdateOneRequiredWithoutUsers_cnpjsNestedInput
   }
 
-  export type user_cnpjsUncheckedUpdateWithoutUserInput = {
+  export type users_cnpjsUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     cnpjsId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type user_cnpjsUncheckedUpdateManyWithoutUserInput = {
+  export type users_cnpjsUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     cnpjsId?: IntFieldUpdateOperationsInput | number
   }
@@ -9434,21 +9435,21 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
   }
 
-  export type user_cnpjsCreateManyCnpjInput = {
+  export type users_cnpjsCreateManyCnpjInput = {
     id?: number
     usersId: number
   }
 
-  export type user_cnpjsUpdateWithoutCnpjInput = {
-    user?: usersUpdateOneRequiredWithoutUser_cnpjsNestedInput
+  export type users_cnpjsUpdateWithoutCnpjInput = {
+    user?: usersUpdateOneRequiredWithoutUsers_cnpjsNestedInput
   }
 
-  export type user_cnpjsUncheckedUpdateWithoutCnpjInput = {
+  export type users_cnpjsUncheckedUpdateWithoutCnpjInput = {
     id?: IntFieldUpdateOperationsInput | number
     usersId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type user_cnpjsUncheckedUpdateManyWithoutCnpjInput = {
+  export type users_cnpjsUncheckedUpdateManyWithoutCnpjInput = {
     id?: IntFieldUpdateOperationsInput | number
     usersId?: IntFieldUpdateOperationsInput | number
   }
