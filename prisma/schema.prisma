@@ -26,19 +26,24 @@ enum PhoneType {
 }
 
 model users {
-  id         Int           @id @default(autoincrement())
-  name       String        @db.VarChar(100)
-  cpf        String        @unique @db.VarChar(11)
-  personType PersonType
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(100)
+  cpf         String        @unique @db.VarChar(11)
+  personType  PersonType
   users_cnpjs users_cnpjs[]
-  phones     phones[]
-  address    address[]
-  emails     emails[]
+  phones      phones[]
+  address     address[]
+  emails      emails[]
+}
+
+model bloquedCPFs {
+  id         Int    @id @default(autoincrement())
+  blockedCPF String @db.VarChar(11)
 }
 
 model cnpjs {
-  id         Int           @id @default(autoincrement())
-  cnpj       String        @db.VarChar(14)
+  id          Int           @id @default(autoincrement())
+  cnpj        String        @db.VarChar(14)
   users_cnpjs users_cnpjs[]
 }
 

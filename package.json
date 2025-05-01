@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules  src/index.ts"
+    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules  src/index.ts",
+    "db-reset": "npx prisma migrate reset",
+    "migrate": "npx prisma migrate dev",
+    "generate": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",

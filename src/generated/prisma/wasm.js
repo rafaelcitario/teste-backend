@@ -127,6 +127,11 @@ exports.Prisma.UsersScalarFieldEnum = {
   personType: 'personType'
 };
 
+exports.Prisma.BloquedCPFsScalarFieldEnum = {
+  id: 'id',
+  blockedCPF: 'blockedCPF'
+};
+
 exports.Prisma.CnpjsScalarFieldEnum = {
   id: 'id',
   cnpj: 'cnpj'
@@ -173,6 +178,10 @@ exports.Prisma.usersOrderByRelevanceFieldEnum = {
   cpf: 'cpf'
 };
 
+exports.Prisma.bloquedCPFsOrderByRelevanceFieldEnum = {
+  blockedCPF: 'blockedCPF'
+};
+
 exports.Prisma.cnpjsOrderByRelevanceFieldEnum = {
   cnpj: 'cnpj'
 };
@@ -206,6 +215,7 @@ exports.PhoneType = exports.$Enums.PhoneType = {
 
 exports.Prisma.ModelName = {
   users: 'users',
+  bloquedCPFs: 'bloquedCPFs',
   cnpjs: 'cnpjs',
   users_cnpjs: 'users_cnpjs',
   phones: 'phones',

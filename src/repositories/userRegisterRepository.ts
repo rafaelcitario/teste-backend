@@ -1,43 +1,24 @@
-import prisma from '../lib/prisma';
-import { PersonType } from '../http/enums/personTypeEnum';
-import { PhoneType } from '../generated/prisma';
-
-type CreateUserDTO = {
-  name: string;
-  cpf: string;
-  personType: PersonType;
-};
-
-type CreateCnpjDTO = {
-  cnpj?: string;
-};
-
-type CreateUserCnpjDTO = {
-  usersId: number;
-  cnpjsId: number;
-};
-
-type CreatePhoneDTO = {
-  number: string;
-  phoneType: PhoneType;
-  usersId: number;
-};
-
-type CreateEmailDTO = {
-  email: string,
-  usersId: number;
-};
+import { PrismaType } from '../types/prisma';
+import { CreateUserDTO, CreateInvalidCPFDTO, CreateCnpjDTO, CreateUserCnpjDTO, CreatePhoneDTO, CreateEmailDTO, CreateAddressDTO } from '../types/dto';
 
 export class UserRegisterRepository {
-  public async userCreate ( data: CreateUserDTO ) {
+  public async userCreate ( data: CreateUserDTO, prisma: PrismaType ) {
     return await prisma.users.create( {
       data,
     } );
   }
 }
 
+export class InvalidCPFRepository {
+  public async invalidCPFCreate ( data: CreateInvalidCPFDTO, prisma: PrismaType ) {
+    return await prisma.bloquedCPFs.create( {
+      data,
+    } );
+  }
+}
+
 export class CnpjRegisterRepository {
-  public async cnpjCreate ( data: CreateCnpjDTO ) {
+  public async cnpjCreate ( data: CreateCnpjDTO, prisma: PrismaType ) {
     const { cnpj } = data;
 
     if ( !cnpj ) {
@@ -52,25 +33,34 @@ export class CnpjRegisterRepository {
 
 
 export class CnpjUsersRegisterRepository {
-  public async cnpjUserCreate ( data: CreateUserCnpjDTO ) {
-    return await prisma.user_cnpjs.create( {
+  public async cnpjUserCreate ( data: CreateUserCnpjDTO, prisma: PrismaType ) {
+    return await prisma.users_cnpjs.create( {
       data,
     } );
   }
 }
 
 export class PhoneRegisterRepository {
-  public async phoneCreate ( data: CreatePhoneDTO ) {
+  public async phoneCreate ( data: CreatePhoneDTO, prisma: PrismaType ) {
     return await prisma.phones.create( {
       data,
     } );
   }
 }
 
-export class emailRegisterRepository {
-  public async emailCreate ( data: CreateEmailDTO ) {
+export class EmailRegisterRepository {
+  public async emailCreate ( data: CreateEmailDTO, prisma: PrismaType ) {
     return await prisma.emails.create( {
       data,
     } );
   }
 }
+
+export class AddressRegisterRepository {
+  public async addressCreate ( data: CreateAddressDTO, prisma: PrismaType ) {
+    return await prisma.address.create( {
+      data,
+    } );
+  }
+}
+

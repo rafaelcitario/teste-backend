@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type users = $Result.DefaultSelection<Prisma.$usersPayload>
 /**
+ * Model bloquedCPFs
+ * 
+ */
+export type bloquedCPFs = $Result.DefaultSelection<Prisma.$bloquedCPFsPayload>
+/**
  * Model cnpjs
  * 
  */
@@ -208,6 +213,16 @@ export class PrismaClient<
     * ```
     */
   get users(): Prisma.usersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bloquedCPFs`: Exposes CRUD operations for the **bloquedCPFs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BloquedCPFs
+    * const bloquedCPFs = await prisma.bloquedCPFs.findMany()
+    * ```
+    */
+  get bloquedCPFs(): Prisma.bloquedCPFsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.cnpjs`: Exposes CRUD operations for the **cnpjs** model.
@@ -699,6 +714,7 @@ export namespace Prisma {
 
   export const ModelName: {
     users: 'users',
+    bloquedCPFs: 'bloquedCPFs',
     cnpjs: 'cnpjs',
     users_cnpjs: 'users_cnpjs',
     phones: 'phones',
@@ -722,7 +738,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "cnpjs" | "users_cnpjs" | "phones" | "address" | "emails"
+      modelProps: "users" | "bloquedCPFs" | "cnpjs" | "users_cnpjs" | "phones" | "address" | "emails"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -789,6 +805,72 @@ export namespace Prisma {
           count: {
             args: Prisma.usersCountArgs<ExtArgs>
             result: $Utils.Optional<UsersCountAggregateOutputType> | number
+          }
+        }
+      }
+      bloquedCPFs: {
+        payload: Prisma.$bloquedCPFsPayload<ExtArgs>
+        fields: Prisma.bloquedCPFsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.bloquedCPFsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.bloquedCPFsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          findFirst: {
+            args: Prisma.bloquedCPFsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.bloquedCPFsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          findMany: {
+            args: Prisma.bloquedCPFsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>[]
+          }
+          create: {
+            args: Prisma.bloquedCPFsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          createMany: {
+            args: Prisma.bloquedCPFsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.bloquedCPFsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          update: {
+            args: Prisma.bloquedCPFsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          deleteMany: {
+            args: Prisma.bloquedCPFsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.bloquedCPFsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.bloquedCPFsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bloquedCPFsPayload>
+          }
+          aggregate: {
+            args: Prisma.BloquedCPFsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBloquedCPFs>
+          }
+          groupBy: {
+            args: Prisma.bloquedCPFsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BloquedCPFsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.bloquedCPFsCountArgs<ExtArgs>
+            result: $Utils.Optional<BloquedCPFsCountAggregateOutputType> | number
           }
         }
       }
@@ -1207,6 +1289,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     users?: usersOmit
+    bloquedCPFs?: bloquedCPFsOmit
     cnpjs?: cnpjsOmit
     users_cnpjs?: users_cnpjsOmit
     phones?: phonesOmit
@@ -2453,6 +2536,889 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: usersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model bloquedCPFs
+   */
+
+  export type AggregateBloquedCPFs = {
+    _count: BloquedCPFsCountAggregateOutputType | null
+    _avg: BloquedCPFsAvgAggregateOutputType | null
+    _sum: BloquedCPFsSumAggregateOutputType | null
+    _min: BloquedCPFsMinAggregateOutputType | null
+    _max: BloquedCPFsMaxAggregateOutputType | null
+  }
+
+  export type BloquedCPFsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BloquedCPFsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BloquedCPFsMinAggregateOutputType = {
+    id: number | null
+    blockedCPF: string | null
+  }
+
+  export type BloquedCPFsMaxAggregateOutputType = {
+    id: number | null
+    blockedCPF: string | null
+  }
+
+  export type BloquedCPFsCountAggregateOutputType = {
+    id: number
+    blockedCPF: number
+    _all: number
+  }
+
+
+  export type BloquedCPFsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type BloquedCPFsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type BloquedCPFsMinAggregateInputType = {
+    id?: true
+    blockedCPF?: true
+  }
+
+  export type BloquedCPFsMaxAggregateInputType = {
+    id?: true
+    blockedCPF?: true
+  }
+
+  export type BloquedCPFsCountAggregateInputType = {
+    id?: true
+    blockedCPF?: true
+    _all?: true
+  }
+
+  export type BloquedCPFsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bloquedCPFs to aggregate.
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bloquedCPFs to fetch.
+     */
+    orderBy?: bloquedCPFsOrderByWithRelationInput | bloquedCPFsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: bloquedCPFsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bloquedCPFs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bloquedCPFs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned bloquedCPFs
+    **/
+    _count?: true | BloquedCPFsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BloquedCPFsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BloquedCPFsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BloquedCPFsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BloquedCPFsMaxAggregateInputType
+  }
+
+  export type GetBloquedCPFsAggregateType<T extends BloquedCPFsAggregateArgs> = {
+        [P in keyof T & keyof AggregateBloquedCPFs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBloquedCPFs[P]>
+      : GetScalarType<T[P], AggregateBloquedCPFs[P]>
+  }
+
+
+
+
+  export type bloquedCPFsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bloquedCPFsWhereInput
+    orderBy?: bloquedCPFsOrderByWithAggregationInput | bloquedCPFsOrderByWithAggregationInput[]
+    by: BloquedCPFsScalarFieldEnum[] | BloquedCPFsScalarFieldEnum
+    having?: bloquedCPFsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BloquedCPFsCountAggregateInputType | true
+    _avg?: BloquedCPFsAvgAggregateInputType
+    _sum?: BloquedCPFsSumAggregateInputType
+    _min?: BloquedCPFsMinAggregateInputType
+    _max?: BloquedCPFsMaxAggregateInputType
+  }
+
+  export type BloquedCPFsGroupByOutputType = {
+    id: number
+    blockedCPF: string
+    _count: BloquedCPFsCountAggregateOutputType | null
+    _avg: BloquedCPFsAvgAggregateOutputType | null
+    _sum: BloquedCPFsSumAggregateOutputType | null
+    _min: BloquedCPFsMinAggregateOutputType | null
+    _max: BloquedCPFsMaxAggregateOutputType | null
+  }
+
+  type GetBloquedCPFsGroupByPayload<T extends bloquedCPFsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BloquedCPFsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BloquedCPFsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BloquedCPFsGroupByOutputType[P]>
+            : GetScalarType<T[P], BloquedCPFsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type bloquedCPFsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    blockedCPF?: boolean
+  }, ExtArgs["result"]["bloquedCPFs"]>
+
+
+
+  export type bloquedCPFsSelectScalar = {
+    id?: boolean
+    blockedCPF?: boolean
+  }
+
+  export type bloquedCPFsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "blockedCPF", ExtArgs["result"]["bloquedCPFs"]>
+
+  export type $bloquedCPFsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "bloquedCPFs"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      blockedCPF: string
+    }, ExtArgs["result"]["bloquedCPFs"]>
+    composites: {}
+  }
+
+  type bloquedCPFsGetPayload<S extends boolean | null | undefined | bloquedCPFsDefaultArgs> = $Result.GetResult<Prisma.$bloquedCPFsPayload, S>
+
+  type bloquedCPFsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<bloquedCPFsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BloquedCPFsCountAggregateInputType | true
+    }
+
+  export interface bloquedCPFsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['bloquedCPFs'], meta: { name: 'bloquedCPFs' } }
+    /**
+     * Find zero or one BloquedCPFs that matches the filter.
+     * @param {bloquedCPFsFindUniqueArgs} args - Arguments to find a BloquedCPFs
+     * @example
+     * // Get one BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends bloquedCPFsFindUniqueArgs>(args: SelectSubset<T, bloquedCPFsFindUniqueArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BloquedCPFs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {bloquedCPFsFindUniqueOrThrowArgs} args - Arguments to find a BloquedCPFs
+     * @example
+     * // Get one BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends bloquedCPFsFindUniqueOrThrowArgs>(args: SelectSubset<T, bloquedCPFsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BloquedCPFs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsFindFirstArgs} args - Arguments to find a BloquedCPFs
+     * @example
+     * // Get one BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends bloquedCPFsFindFirstArgs>(args?: SelectSubset<T, bloquedCPFsFindFirstArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BloquedCPFs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsFindFirstOrThrowArgs} args - Arguments to find a BloquedCPFs
+     * @example
+     * // Get one BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends bloquedCPFsFindFirstOrThrowArgs>(args?: SelectSubset<T, bloquedCPFsFindFirstOrThrowArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BloquedCPFs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findMany()
+     * 
+     * // Get first 10 BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bloquedCPFsWithIdOnly = await prisma.bloquedCPFs.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends bloquedCPFsFindManyArgs>(args?: SelectSubset<T, bloquedCPFsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BloquedCPFs.
+     * @param {bloquedCPFsCreateArgs} args - Arguments to create a BloquedCPFs.
+     * @example
+     * // Create one BloquedCPFs
+     * const BloquedCPFs = await prisma.bloquedCPFs.create({
+     *   data: {
+     *     // ... data to create a BloquedCPFs
+     *   }
+     * })
+     * 
+     */
+    create<T extends bloquedCPFsCreateArgs>(args: SelectSubset<T, bloquedCPFsCreateArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BloquedCPFs.
+     * @param {bloquedCPFsCreateManyArgs} args - Arguments to create many BloquedCPFs.
+     * @example
+     * // Create many BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends bloquedCPFsCreateManyArgs>(args?: SelectSubset<T, bloquedCPFsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BloquedCPFs.
+     * @param {bloquedCPFsDeleteArgs} args - Arguments to delete one BloquedCPFs.
+     * @example
+     * // Delete one BloquedCPFs
+     * const BloquedCPFs = await prisma.bloquedCPFs.delete({
+     *   where: {
+     *     // ... filter to delete one BloquedCPFs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends bloquedCPFsDeleteArgs>(args: SelectSubset<T, bloquedCPFsDeleteArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BloquedCPFs.
+     * @param {bloquedCPFsUpdateArgs} args - Arguments to update one BloquedCPFs.
+     * @example
+     * // Update one BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends bloquedCPFsUpdateArgs>(args: SelectSubset<T, bloquedCPFsUpdateArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BloquedCPFs.
+     * @param {bloquedCPFsDeleteManyArgs} args - Arguments to filter BloquedCPFs to delete.
+     * @example
+     * // Delete a few BloquedCPFs
+     * const { count } = await prisma.bloquedCPFs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends bloquedCPFsDeleteManyArgs>(args?: SelectSubset<T, bloquedCPFsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BloquedCPFs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends bloquedCPFsUpdateManyArgs>(args: SelectSubset<T, bloquedCPFsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BloquedCPFs.
+     * @param {bloquedCPFsUpsertArgs} args - Arguments to update or create a BloquedCPFs.
+     * @example
+     * // Update or create a BloquedCPFs
+     * const bloquedCPFs = await prisma.bloquedCPFs.upsert({
+     *   create: {
+     *     // ... data to create a BloquedCPFs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BloquedCPFs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends bloquedCPFsUpsertArgs>(args: SelectSubset<T, bloquedCPFsUpsertArgs<ExtArgs>>): Prisma__bloquedCPFsClient<$Result.GetResult<Prisma.$bloquedCPFsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BloquedCPFs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsCountArgs} args - Arguments to filter BloquedCPFs to count.
+     * @example
+     * // Count the number of BloquedCPFs
+     * const count = await prisma.bloquedCPFs.count({
+     *   where: {
+     *     // ... the filter for the BloquedCPFs we want to count
+     *   }
+     * })
+    **/
+    count<T extends bloquedCPFsCountArgs>(
+      args?: Subset<T, bloquedCPFsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BloquedCPFsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BloquedCPFs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloquedCPFsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BloquedCPFsAggregateArgs>(args: Subset<T, BloquedCPFsAggregateArgs>): Prisma.PrismaPromise<GetBloquedCPFsAggregateType<T>>
+
+    /**
+     * Group by BloquedCPFs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bloquedCPFsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends bloquedCPFsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: bloquedCPFsGroupByArgs['orderBy'] }
+        : { orderBy?: bloquedCPFsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, bloquedCPFsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBloquedCPFsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the bloquedCPFs model
+   */
+  readonly fields: bloquedCPFsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for bloquedCPFs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__bloquedCPFsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the bloquedCPFs model
+   */
+  interface bloquedCPFsFieldRefs {
+    readonly id: FieldRef<"bloquedCPFs", 'Int'>
+    readonly blockedCPF: FieldRef<"bloquedCPFs", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * bloquedCPFs findUnique
+   */
+  export type bloquedCPFsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter, which bloquedCPFs to fetch.
+     */
+    where: bloquedCPFsWhereUniqueInput
+  }
+
+  /**
+   * bloquedCPFs findUniqueOrThrow
+   */
+  export type bloquedCPFsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter, which bloquedCPFs to fetch.
+     */
+    where: bloquedCPFsWhereUniqueInput
+  }
+
+  /**
+   * bloquedCPFs findFirst
+   */
+  export type bloquedCPFsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter, which bloquedCPFs to fetch.
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bloquedCPFs to fetch.
+     */
+    orderBy?: bloquedCPFsOrderByWithRelationInput | bloquedCPFsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bloquedCPFs.
+     */
+    cursor?: bloquedCPFsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bloquedCPFs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bloquedCPFs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bloquedCPFs.
+     */
+    distinct?: BloquedCPFsScalarFieldEnum | BloquedCPFsScalarFieldEnum[]
+  }
+
+  /**
+   * bloquedCPFs findFirstOrThrow
+   */
+  export type bloquedCPFsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter, which bloquedCPFs to fetch.
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bloquedCPFs to fetch.
+     */
+    orderBy?: bloquedCPFsOrderByWithRelationInput | bloquedCPFsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bloquedCPFs.
+     */
+    cursor?: bloquedCPFsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bloquedCPFs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bloquedCPFs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bloquedCPFs.
+     */
+    distinct?: BloquedCPFsScalarFieldEnum | BloquedCPFsScalarFieldEnum[]
+  }
+
+  /**
+   * bloquedCPFs findMany
+   */
+  export type bloquedCPFsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter, which bloquedCPFs to fetch.
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bloquedCPFs to fetch.
+     */
+    orderBy?: bloquedCPFsOrderByWithRelationInput | bloquedCPFsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing bloquedCPFs.
+     */
+    cursor?: bloquedCPFsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bloquedCPFs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bloquedCPFs.
+     */
+    skip?: number
+    distinct?: BloquedCPFsScalarFieldEnum | BloquedCPFsScalarFieldEnum[]
+  }
+
+  /**
+   * bloquedCPFs create
+   */
+  export type bloquedCPFsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a bloquedCPFs.
+     */
+    data: XOR<bloquedCPFsCreateInput, bloquedCPFsUncheckedCreateInput>
+  }
+
+  /**
+   * bloquedCPFs createMany
+   */
+  export type bloquedCPFsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many bloquedCPFs.
+     */
+    data: bloquedCPFsCreateManyInput | bloquedCPFsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bloquedCPFs update
+   */
+  export type bloquedCPFsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a bloquedCPFs.
+     */
+    data: XOR<bloquedCPFsUpdateInput, bloquedCPFsUncheckedUpdateInput>
+    /**
+     * Choose, which bloquedCPFs to update.
+     */
+    where: bloquedCPFsWhereUniqueInput
+  }
+
+  /**
+   * bloquedCPFs updateMany
+   */
+  export type bloquedCPFsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update bloquedCPFs.
+     */
+    data: XOR<bloquedCPFsUpdateManyMutationInput, bloquedCPFsUncheckedUpdateManyInput>
+    /**
+     * Filter which bloquedCPFs to update
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * Limit how many bloquedCPFs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * bloquedCPFs upsert
+   */
+  export type bloquedCPFsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the bloquedCPFs to update in case it exists.
+     */
+    where: bloquedCPFsWhereUniqueInput
+    /**
+     * In case the bloquedCPFs found by the `where` argument doesn't exist, create a new bloquedCPFs with this data.
+     */
+    create: XOR<bloquedCPFsCreateInput, bloquedCPFsUncheckedCreateInput>
+    /**
+     * In case the bloquedCPFs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<bloquedCPFsUpdateInput, bloquedCPFsUncheckedUpdateInput>
+  }
+
+  /**
+   * bloquedCPFs delete
+   */
+  export type bloquedCPFsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
+    /**
+     * Filter which bloquedCPFs to delete.
+     */
+    where: bloquedCPFsWhereUniqueInput
+  }
+
+  /**
+   * bloquedCPFs deleteMany
+   */
+  export type bloquedCPFsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bloquedCPFs to delete
+     */
+    where?: bloquedCPFsWhereInput
+    /**
+     * Limit how many bloquedCPFs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * bloquedCPFs without action
+   */
+  export type bloquedCPFsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bloquedCPFs
+     */
+    select?: bloquedCPFsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bloquedCPFs
+     */
+    omit?: bloquedCPFsOmit<ExtArgs> | null
   }
 
 
@@ -7305,6 +8271,14 @@ export namespace Prisma {
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
+  export const BloquedCPFsScalarFieldEnum: {
+    id: 'id',
+    blockedCPF: 'blockedCPF'
+  };
+
+  export type BloquedCPFsScalarFieldEnum = (typeof BloquedCPFsScalarFieldEnum)[keyof typeof BloquedCPFsScalarFieldEnum]
+
+
   export const CnpjsScalarFieldEnum: {
     id: 'id',
     cnpj: 'cnpj'
@@ -7370,6 +8344,13 @@ export namespace Prisma {
   };
 
   export type usersOrderByRelevanceFieldEnum = (typeof usersOrderByRelevanceFieldEnum)[keyof typeof usersOrderByRelevanceFieldEnum]
+
+
+  export const bloquedCPFsOrderByRelevanceFieldEnum: {
+    blockedCPF: 'blockedCPF'
+  };
+
+  export type bloquedCPFsOrderByRelevanceFieldEnum = (typeof bloquedCPFsOrderByRelevanceFieldEnum)[keyof typeof bloquedCPFsOrderByRelevanceFieldEnum]
 
 
   export const cnpjsOrderByRelevanceFieldEnum: {
@@ -7508,6 +8489,46 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"users"> | string
     cpf?: StringWithAggregatesFilter<"users"> | string
     personType?: EnumPersonTypeWithAggregatesFilter<"users"> | $Enums.PersonType
+  }
+
+  export type bloquedCPFsWhereInput = {
+    AND?: bloquedCPFsWhereInput | bloquedCPFsWhereInput[]
+    OR?: bloquedCPFsWhereInput[]
+    NOT?: bloquedCPFsWhereInput | bloquedCPFsWhereInput[]
+    id?: IntFilter<"bloquedCPFs"> | number
+    blockedCPF?: StringFilter<"bloquedCPFs"> | string
+  }
+
+  export type bloquedCPFsOrderByWithRelationInput = {
+    id?: SortOrder
+    blockedCPF?: SortOrder
+    _relevance?: bloquedCPFsOrderByRelevanceInput
+  }
+
+  export type bloquedCPFsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: bloquedCPFsWhereInput | bloquedCPFsWhereInput[]
+    OR?: bloquedCPFsWhereInput[]
+    NOT?: bloquedCPFsWhereInput | bloquedCPFsWhereInput[]
+    blockedCPF?: StringFilter<"bloquedCPFs"> | string
+  }, "id">
+
+  export type bloquedCPFsOrderByWithAggregationInput = {
+    id?: SortOrder
+    blockedCPF?: SortOrder
+    _count?: bloquedCPFsCountOrderByAggregateInput
+    _avg?: bloquedCPFsAvgOrderByAggregateInput
+    _max?: bloquedCPFsMaxOrderByAggregateInput
+    _min?: bloquedCPFsMinOrderByAggregateInput
+    _sum?: bloquedCPFsSumOrderByAggregateInput
+  }
+
+  export type bloquedCPFsScalarWhereWithAggregatesInput = {
+    AND?: bloquedCPFsScalarWhereWithAggregatesInput | bloquedCPFsScalarWhereWithAggregatesInput[]
+    OR?: bloquedCPFsScalarWhereWithAggregatesInput[]
+    NOT?: bloquedCPFsScalarWhereWithAggregatesInput | bloquedCPFsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"bloquedCPFs"> | number
+    blockedCPF?: StringWithAggregatesFilter<"bloquedCPFs"> | string
   }
 
   export type cnpjsWhereInput = {
@@ -7842,6 +8863,38 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     personType?: EnumPersonTypeFieldUpdateOperationsInput | $Enums.PersonType
+  }
+
+  export type bloquedCPFsCreateInput = {
+    blockedCPF: string
+  }
+
+  export type bloquedCPFsUncheckedCreateInput = {
+    id?: number
+    blockedCPF: string
+  }
+
+  export type bloquedCPFsUpdateInput = {
+    blockedCPF?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type bloquedCPFsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    blockedCPF?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type bloquedCPFsCreateManyInput = {
+    id?: number
+    blockedCPF: string
+  }
+
+  export type bloquedCPFsUpdateManyMutationInput = {
+    blockedCPF?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type bloquedCPFsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    blockedCPF?: StringFieldUpdateOperationsInput | string
   }
 
   export type cnpjsCreateInput = {
@@ -8231,6 +9284,35 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPersonTypeFilter<$PrismaModel>
     _max?: NestedEnumPersonTypeFilter<$PrismaModel>
+  }
+
+  export type bloquedCPFsOrderByRelevanceInput = {
+    fields: bloquedCPFsOrderByRelevanceFieldEnum | bloquedCPFsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type bloquedCPFsCountOrderByAggregateInput = {
+    id?: SortOrder
+    blockedCPF?: SortOrder
+  }
+
+  export type bloquedCPFsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type bloquedCPFsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    blockedCPF?: SortOrder
+  }
+
+  export type bloquedCPFsMinOrderByAggregateInput = {
+    id?: SortOrder
+    blockedCPF?: SortOrder
+  }
+
+  export type bloquedCPFsSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type cnpjsOrderByRelevanceInput = {

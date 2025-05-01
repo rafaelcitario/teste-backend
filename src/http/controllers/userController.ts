@@ -1,12 +1,16 @@
 import { BodyDataRequired } from '../../interfaces/userRegisterBodyData';
 import { Response, Request } from '../../lib/express';
 import prisma from '../../lib/prisma';
-import { userServices, cnpjServices, phonesService, emailService } from '../../services/userServices';
+import { addressService } from '../../services/addressServices';
+import { cnpjServices } from '../../services/cnpjServices';
+import { emailService } from '../../services/emailServices';
+import { phonesService } from '../../services/phoneServices';
+import { userServices } from '../../services/userServices';
 import { PersonType } from '../enums/personTypeEnum';
 import { PhoneType } from '../enums/phoneTypeEnum';
 
 export async function userController ( req: Request, res: Response ): Promise<void> {
-  const { cnpj, personType, phoneType, celular, telefone, email }: BodyDataRequired = req.body;
+  const { cnpj, personType, phoneType, celular, telefone, email, cep }: BodyDataRequired = req.body;
 
   const validPersonType = [PersonType.PESSOA_FISICA, PersonType.PESSOA_JURIDICA];
   if ( !validPersonType.includes( personType ) ) {
@@ -21,18 +25,20 @@ export async function userController ( req: Request, res: Response ): Promise<vo
   }
 
   if ( !celular && phoneType.includes( PhoneType.CELULAR ) ) {
-    res.status( 400 ).json( { error: " o campo celular esta faltando por favor informe" } );
-    return;
-  }
-  if ( !telefone && phoneType.includes( PhoneType.TELEFONE ) ) {
-    res.status( 400 ).json( { error: "o campo telefone esta faltando por favor informe" } );
-    return;
-  }
-  if ( !celular && phoneType.includes( PhoneType.ALL ) || !telefone && phoneType.includes( PhoneType.ALL ) ) {
-    res.status( 400 ).json( { error: 'os campos telefone e celualar estam faltando por favor informe' + ` ${phoneType} === ${PhoneType.ALL}` } );
+    res.status( 400 ).json( { error: "The 'celular' field is missing, please provide it." } );
     return;
   }
 
+  if ( !telefone && phoneType.includes( PhoneType.TELEFONE ) ) {
+    res.status( 400 ).json( { error: "The 'telefone' field is missing, please provide it." } );
+    return;
+  }
+
+  if ( !celular && phoneType.includes( PhoneType.ALL ) || !telefone && phoneType.includes( PhoneType.ALL )
+  ) {
+    res.status( 400 ).json( { error: "Both 'telefone' and 'celular' fields are missing, please provide them." } );
+    return;
+  }
   if ( personType === PersonType.PESSOA_JURIDICA && !cnpj ) {
     res.status( 400 ).json( {
       error: {
@@ -43,21 +49,41 @@ export async function userController ( req: Request, res: Response ): Promise<vo
     return;
   }
 
+  if ( !/^\d{8}$/.test( cep ) ) {
+    res.status( 400 ).json( {
+      error: {
+        code: "CEP invalid",
+        message: "Invalid CEP! The CEP must contain exactly 8 numeric characters.",
+      },
+    } );
+    return;
+  }
 
   try {
     await prisma.$transaction( async ( prisma ) => {
-      const userEntity = await userServices( req.body );
-
-      if ( personType === PersonType.PESSOA_JURIDICA ) {
-        await cnpjServices( { ...req.body, userId: userEntity.id } );
+      let userEntity = await userServices( req.body, prisma );
+      if ( !userEntity ) {
+        throw { status: 400, error: { code: 'CPF Invalid', message: 'Invalid CPF!' } };
       }
 
-      const phoneEntity = await phonesService( { ...req.body, userId: userEntity.id } );
-      const emailEntiry = await emailService( { ...req.body, userId: userEntity.id } );
+      if ( personType === PersonType.PESSOA_JURIDICA ) {
+        const cnpjEntity = await cnpjServices( { ...req.body, userId: userEntity.id }, prisma );
+        if ( !cnpjEntity ) {
+          throw { status: 400, error: { code: "CNPJ Invalid", message: "Invalid CNPJ! The CNPJ must be a valid document." } };
+          return;
+        }
+      }
 
-      res.status( 200 ).json( { message: "Successfully data registered!" } );
-    } ).then( data => data );
-  } catch ( error ) {
-    res.status( 500 ).json( { error: "Internal server error", details: error } );
+      const phoneEntity = await phonesService( { ...req.body, userId: userEntity.id }, prisma );
+      const emailEntity = await emailService( { ...req.body, userId: userEntity.id }, prisma );
+      const addressEntity = await addressService( { ...req.body, userId: userEntity.id }, prisma );
+    } );
+    res.status( 200 ).json( { message: "Successfully data registered!" } );
+  } catch ( e: any ) {
+    if ( e.status ) {
+      res.status( e.status ).json( { error: e.error } );
+    } else {
+      res.status( 500 ).json( { error: "Internal server error", details: e } );
+    }
   }
 }
