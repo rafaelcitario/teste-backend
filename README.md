@@ -75,7 +75,7 @@ se quiser utilizar o banco de dados via terminal digite o comando:
     
     
     TODO: 
-    - [ ] Validação existencia dos campos de endereço
+    - [x] Validação existencia dos campos de endereço
     - [ ] Refatoração de código
     
 ### Para iniciar o servidor express basta executar o seguinte comando:
